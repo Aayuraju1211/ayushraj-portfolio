@@ -41,7 +41,14 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-end h-16 gap-8">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16">
+        <button
+          onClick={() => handleNavClick("/#")}
+          className="font-heading text-xl font-bold tracking-tight text-foreground hover:text-foreground/80 transition-colors"
+        >
+          AR
+        </button>
+        <div className="flex items-center gap-8">
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <button
@@ -67,6 +74,7 @@ const Navbar = () => {
         >
           {dark ? <Sun size={16} /> : <Moon size={16} />}
         </button>
+        </div>
       </div>
     </nav>
   );
