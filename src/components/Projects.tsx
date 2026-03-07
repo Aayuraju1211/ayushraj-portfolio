@@ -3,22 +3,31 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 
+import ugfLogo from "@/assets/ugf-logo.png";
+import quarkLogo from "@/assets/quark-logo.jpg";
+import prismLogo from "@/assets/prism-logo.png";
+import spotifyLogo from "@/assets/spotify-logo.png";
+import dataAnalysisLogo from "@/assets/data-analysis-logo.png";
+import yatraLogo from "@/assets/yatra-logo.png";
+import yourdostLogo from "@/assets/yourdost-logo.png";
+
 export interface Project {
   slug: string;
   title: string;
   tags: string[];
-  coverColor: string; // placeholder gradient
+  coverColor: string;
+  coverImage?: string;
 }
 
 export const projects: Project[] = [
-  { slug: "ugf-website", title: "UGF Website", tags: ["Figma Prototype", "Work Experience"], coverColor: "from-primary/10 to-primary/5" },
-  { slug: "multi-asset-fund", title: "Multi-Asset Fund", tags: ["Figma Prototype", "Work Experience"], coverColor: "from-muted to-secondary" },
-  { slug: "campus-ambassador", title: "Campus Ambassador Website", tags: ["Figma Prototype"], coverColor: "from-secondary to-muted" },
-  { slug: "prism-mental-health", title: "Prism Mental Health Wellness MVP", tags: ["MVP", "Case Study"], coverColor: "from-primary/5 to-muted" },
-  { slug: "spotify-prd", title: "Spotify PRD", tags: ["PRD", "Case Study"], coverColor: "from-muted to-primary/10" },
-  { slug: "ecommerce-analysis", title: "E-Commerce Sales Analysis", tags: ["Data Analysis", "Python", "Power BI"], coverColor: "from-secondary to-primary/5" },
-  { slug: "yatra-dashboard", title: "Tracking Dashboard for Yatra Freight", tags: ["Case Study"], coverColor: "from-primary/10 to-secondary" },
-  { slug: "yourdost-churn", title: "Reducing Churn & Measuring ROI for yourDOST", tags: ["Case Study"], coverColor: "from-muted to-primary/5" },
+  { slug: "ugf-website", title: "UGF Website", tags: ["Figma Prototype", "Work Experience"], coverColor: "from-primary/10 to-primary/5", coverImage: ugfLogo },
+  { slug: "multi-asset-fund", title: "Multi-Asset Fund", tags: ["Figma Prototype", "Work Experience"], coverColor: "from-muted to-secondary", coverImage: ugfLogo },
+  { slug: "campus-ambassador", title: "Campus Ambassador Website", tags: ["Figma Prototype"], coverColor: "from-secondary to-muted", coverImage: quarkLogo },
+  { slug: "prism-mental-health", title: "Prism Mental Health Wellness MVP", tags: ["MVP", "Case Study"], coverColor: "from-primary/5 to-muted", coverImage: prismLogo },
+  { slug: "spotify-prd", title: "Spotify PRD", tags: ["PRD", "Case Study"], coverColor: "from-muted to-primary/10", coverImage: spotifyLogo },
+  { slug: "ecommerce-analysis", title: "E-Commerce Sales Analysis", tags: ["Data Analysis", "Python", "Power BI"], coverColor: "from-secondary to-primary/5", coverImage: dataAnalysisLogo },
+  { slug: "yatra-dashboard", title: "Tracking Dashboard for Yatra Freight", tags: ["Case Study"], coverColor: "from-primary/10 to-secondary", coverImage: yatraLogo },
+  { slug: "yourdost-churn", title: "Reducing Churn & Measuring ROI for yourDOST", tags: ["Case Study"], coverColor: "from-muted to-primary/5", coverImage: yourdostLogo },
 ];
 
 const allFilters = ["All", "Case Study", "Figma Prototype", "Data Analysis", "Automation"];
