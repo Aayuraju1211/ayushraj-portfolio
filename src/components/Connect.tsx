@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Linkedin, Send } from "lucide-react";
+import { Mail, Linkedin, Send, Download } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import { toast } from "sonner";
 
@@ -40,7 +40,15 @@ const Connect = () => {
               <p className="text-muted-foreground mb-8">
                 Internships, full-time, and consulting.
               </p>
-              <div className="flex gap-6">
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cta-button inline-flex items-center gap-2"
+                >
+                  <Download size={14} /> Download Resume
+                </a>
                 <a
                   href="mailto:ayush@example.com"
                   className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-sub text-sm"
