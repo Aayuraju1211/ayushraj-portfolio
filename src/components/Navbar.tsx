@@ -74,6 +74,7 @@ const Navbar = () => {
         >
           {dark ? <Sun size={16} /> : <Moon size={16} />}
         </button>
+        </div>
       </div>
     </nav>
   );
