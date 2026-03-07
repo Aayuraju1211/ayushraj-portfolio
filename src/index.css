@@ -165,7 +165,12 @@
 
   .skill-pill {
     @apply font-body text-[13px] px-4 py-2 border border-border text-foreground/80;
-  }
+}
+
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
 }
 
 /* Smooth scroll */
