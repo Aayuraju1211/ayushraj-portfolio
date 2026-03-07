@@ -79,10 +79,10 @@ const Projects = () => {
             {filtered.map((project, i) => (
               <ScrollReveal key={project.slug} delay={i * 0.05}>
                 <Link to={`/project/${project.slug}`} className="block project-card group">
-                  <div className="aspect-[16/7] overflow-hidden rounded-t-[24px]">
+                  <div className="aspect-[16/9] overflow-hidden rounded-t-[24px]">
                     <div className={`w-full h-full bg-gradient-to-br ${project.coverColor} flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-110`}>
                       {project.coverImage ? (
-                        <img src={project.coverImage} alt={project.title} className="max-h-[70%] max-w-[60%] object-contain" />
+                        <img src={project.coverImage} alt={project.title} className="w-full h-full object-cover" />
                       ) : (
                         <span className="font-heading text-lg text-foreground/30 group-hover:text-foreground/50 transition-colors">
                           {project.title}
