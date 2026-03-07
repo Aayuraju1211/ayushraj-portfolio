@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Download } from "lucide-react";
-import ayushPhoto from "@/assets/ayush-photo.jpg";
+import ayushPhoto from "@/assets/ayush-photo.png";
 
 const stagger = {
   hidden: {},
@@ -61,16 +61,16 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
-            className="lg:col-span-5 flex justify-end"
+            className="lg:col-span-5 flex justify-end lg:pr-[-20px]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <div className="border border-border overflow-hidden max-w-[380px] w-full">
+            <div className="border border-border overflow-hidden max-w-[380px] w-full rounded-[24px] group">
               <img
                 src={ayushPhoto}
                 alt="Ayush Raj"
-                className="w-full h-auto object-cover aspect-[3/4]"
+                className="w-full h-auto object-cover aspect-[3/4] object-[40%_top] transition-transform duration-500 ease-out group-hover:scale-110"
                 loading="eager"
               />
             </div>
