@@ -70,10 +70,12 @@ const Projects = () => {
             {filtered.map((project, i) => (
               <ScrollReveal key={project.slug} delay={i * 0.05}>
                 <Link to={`/project/${project.slug}`} className="block project-card group">
-                  <div className={`aspect-[16/10] bg-gradient-to-br ${project.coverColor} flex items-center justify-center`}>
-                    <span className="font-heading text-lg text-foreground/30 group-hover:text-foreground/50 transition-colors">
-                      {project.title}
-                    </span>
+                  <div className="aspect-[16/7] overflow-hidden rounded-t-[24px]">
+                    <div className={`w-full h-full bg-gradient-to-br ${project.coverColor} flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-110`}>
+                      <span className="font-heading text-lg text-foreground/30 group-hover:text-foreground/50 transition-colors">
+                        {project.title}
+                      </span>
+                    </div>
                   </div>
                   <div className="p-5">
                     <h3 className="font-heading text-lg font-medium text-foreground mb-3">
