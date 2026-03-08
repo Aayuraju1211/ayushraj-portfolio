@@ -19,10 +19,20 @@ import caScreen5 from "@/assets/ca-screen-5.png";
 import caScreen6 from "@/assets/ca-screen-6.png";
 import caScreen7 from "@/assets/ca-screen-7.png";
 import caScreen8 from "@/assets/ca-screen-8.png";
+import mafScreen1 from "@/assets/maf-screen-1.png";
+import mafScreen2 from "@/assets/maf-screen-2.png";
+import mafScreen3 from "@/assets/maf-screen-3.png";
+import mafScreen4 from "@/assets/maf-screen-4.png";
+import mafScreen5 from "@/assets/maf-screen-5.png";
+import mafScreen6 from "@/assets/maf-screen-6.png";
+import mafScreen7 from "@/assets/maf-screen-7.png";
+import mafScreen8 from "@/assets/maf-screen-8.png";
+import mafScreen9 from "@/assets/maf-screen-9.png";
 
 const projectScreens: Record<string, string[]> = {
   "ugf-website": [ugfScreen1, ugfScreen2, ugfScreen3, ugfScreen4, ugfScreen5],
   "campus-ambassador": [caScreen1, caScreen2, caScreen3, caScreen4, caScreen5, caScreen6, caScreen7, caScreen8],
+  "multi-asset-fund": [mafScreen1, mafScreen2, mafScreen3, mafScreen4, mafScreen5, mafScreen6, mafScreen7, mafScreen8, mafScreen9],
 };
 
 interface CTA {
@@ -99,7 +109,7 @@ const projectDetails: ProjectDetail[] = [
     problem: "Design the UI for UGF's \"Multi-Asset\" investment vertical dashboard for LP-facing fund metrics visualization.",
     contribution: "Designed the full Figma prototype for the Multi-Asset and VC Fund verticals. Incorporated industry-standard fund metrics displays. Enabled SAM expansion and unlocked new revenue streams for the firm.",
     ctaLabel: "Open Prototype in Figma",
-    ctaUrl: "#",
+    ctaUrl: "https://www.figma.com/proto/ypPInfhpBML0NqTwd8We8a/UGF?page-id=88%3A293&node-id=600-1421&viewport=302%2C-4760%2C0.4&t=zjV2A0rly3iB8I1I-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=600%3A1421",
   },
   {
     slug: "campus-ambassador",
@@ -211,19 +221,39 @@ const ProjectPage = () => {
           {/* Project screens */}
           <div className="flex flex-col gap-[20px]">
             {screens ? (
-              screens.map((src, i) => (
-                <ScrollReveal key={i} delay={i * 0.06}>
-                  {i > 0 && (
-                    <div className="mb-[20px] border-t" style={{ borderColor: "rgba(30, 42, 30, 0.2)" }} />
-                  )}
-                  <img
-                    src={src}
-                    alt={`${detail.title} screen ${i + 1}`}
-                    className="w-full block transition-[filter] duration-[250ms] ease-in-out hover:brightness-[1.04]"
-                    style={{ border: "1px solid #2A3545" }}
-                  />
-                </ScrollReveal>
-              ))
+              screens.map((src, i) => {
+                const continuityPairs: Record<string, number[][]> = {
+                  "multi-asset-fund": [[1, 2], [3, 4]],
+                };
+                const pairs = slug ? continuityPairs[slug] || [] : [];
+                const isBottomOfPair = pairs.some(([a]) => a === i);
+                const isTopOfPair = pairs.some(([, b]) => b === i);
+                const noDivider = isTopOfPair;
+                const noGap = isTopOfPair;
+
+                const borderStyle: React.CSSProperties = {
+                  borderLeft: "1px solid #2A3545",
+                  borderRight: "1px solid #2A3545",
+                  borderTop: isTopOfPair ? "none" : "1px solid #2A3545",
+                  borderBottom: isBottomOfPair ? "none" : "1px solid #2A3545",
+                };
+
+                return (
+                  <ScrollReveal key={i} delay={i * 0.06}>
+                    {i > 0 && !noDivider && (
+                      <div className="mb-[20px] border-t" style={{ borderColor: "rgba(30, 42, 30, 0.2)" }} />
+                    )}
+                    <div style={noGap ? { marginTop: "-20px" } : undefined}>
+                      <img
+                        src={src}
+                        alt={`${detail.title} screen ${i + 1}`}
+                        className="w-full block transition-[filter] duration-[250ms] ease-in-out hover:brightness-[1.04]"
+                        style={borderStyle}
+                      />
+                    </div>
+                  </ScrollReveal>
+                );
+              })
             ) : (
               placeholderScreens.map((i) => (
                 <ScrollReveal key={i} delay={i * 0.08}>
