@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollReveal from "../components/ScrollReveal";
 import Navbar from "../components/Navbar";
@@ -28,6 +28,10 @@ import mafScreen6 from "@/assets/maf-screen-6.png";
 import mafScreen7 from "@/assets/maf-screen-7.png";
 import mafScreen8 from "@/assets/maf-screen-8.png";
 import mafScreen9 from "@/assets/maf-screen-9.png";
+import yatraCover from "@/assets/yatra-cover.jpg";
+import spotifyCover from "@/assets/spotify-cover.jpg";
+import prismCover from "@/assets/prism-cover.jpg";
+import yourdostCover from "@/assets/yourdost-cover.jpg";
 
 const projectScreens: Record<string, string[]> = {
   "ugf-website": [ugfScreen1, ugfScreen2, ugfScreen3, ugfScreen4, ugfScreen5],
@@ -49,6 +53,10 @@ interface ProjectDetail {
   ctaLabel?: string;
   ctaUrl?: string;
   ctas?: CTA[];
+  // PDF-based project fields
+  pdfUrl?: string;
+  coverImage?: string;
+  secondaryCta?: CTA;
 }
 
 const projectDetails: ProjectDetail[] = [
@@ -58,29 +66,36 @@ const projectDetails: ProjectDetail[] = [
     tags: ["MVP", "Case Study"],
     problem: "Young professionals in India can't tell if their anxiety or burnout needs professional help. Existing solutions are either generic self-help or full therapy — nothing in between. 70–92% of affected individuals receive no care.",
     contribution: "Validated 3 core hypotheses via a 38-user survey and 1:1 interviews. Prioritized features using RICE (Mood Tracker: 115.71, Peer Support: 88.2, Sleep Tracking: 72). Designed system architecture, user journey, and north star metric. Built a functional MVP with onboarding, mood logging, and curiosity-gated insights screen.",
-    ctaLabel: "View MVP",
-    ctaUrl: "#",
+    pdfUrl: "/pdfs/prism-mvp.pdf",
+    coverImage: prismCover,
+    secondaryCta: { label: "View MVP Prototype", url: "#" },
   },
   {
     slug: "spotify-prd",
     title: "Increasing Time Spent Listening on Spotify",
     tags: ["PRD", "Case Study"],
-    problem: "Free-tier Spotify users in India (18–27 years, ~16M segment) abandon sessions due to random ad interruptions and lack of playback control, directly hurting TSL, ad revenue, and premium conversion.",
-    contribution: "Surveyed 36 users (83% frustrated by ads). Proposed a \"Spotify Mobile\" plan at ₹29/month — validated by 83.3% preference over current free tier. Designed full ad timer UX specification and data instrumentation plan with 7 custom tracking events.",
+    problem: "The challenge was identifying new, engaging ways to deepen user interaction and increase the average session length on the platform.",
+    contribution: "Authored a PRD proposing specific feature enhancements, user loops, and success metrics to keep listeners engaged longer. Surveyed 36 users (83% frustrated by ads). Proposed a \"Spotify Mobile\" plan at ₹29/month — validated by 83.3% preference over current free tier.",
+    pdfUrl: "/pdfs/spotify-prd.pdf",
+    coverImage: spotifyCover,
   },
   {
     slug: "yatra-dashboard",
     title: "Tracking Dashboard for Yatra Freight",
     tags: ["Case Study"],
-    problem: "Yatra Freight teams manually chased shipment status via calls and fragmented portals, creating high operational costs, customer churn risk, and a scaling bottleneck.",
-    contribution: "Wrote BRD and full PRD covering shipment display, exception management, RBAC, and automated milestone notifications. Built wireframes for 3 core views. Defined 7 success metrics including the north star (Proactive Exception Handling Rate) and 4 explicit product trade-offs.",
+    problem: "Lack of clear, real-time visibility into freight movements was causing operational delays and poor customer communication.",
+    contribution: "Designed a comprehensive tracking dashboard to monitor freight status, consolidate shipment data, and streamline logistics tracking. Wrote BRD and full PRD covering shipment display, exception management, RBAC, and automated milestone notifications.",
+    pdfUrl: "/pdfs/yatra-freight.pdf",
+    coverImage: yatraCover,
   },
   {
     slug: "yourdost-churn",
     title: "Reducing Churn & Measuring ROI for yourDOST",
     tags: ["Case Study"],
-    problem: "yourDOST's B2B2C wellness platform faced high early churn (users dropping after 1–2 sessions) and couldn't give HR teams a measurable ROI on their wellness spend — making renewals hard to justify.",
-    contribution: "Designed Privacy-First Onboarding, a Time-to-Value Optimizer to match employees with counselors faster, and a Smart Care Loop to prevent early churn. Built an ROI Quantification Model using the WHO-5 framework to produce a board-ready B2B wellness impact dashboard.",
+    problem: "The business needed a structured approach to retain users on the platform while accurately proving the return on investment (ROI).",
+    contribution: "Developed a strategic framework that identified churn triggers and proposed targeted feature interventions to improve user loyalty. Built an ROI Quantification Model using the WHO-5 framework to produce a board-ready B2B wellness impact dashboard.",
+    pdfUrl: "/pdfs/yourdost-churn.pdf",
+    coverImage: yourdostCover,
   },
   {
     slug: "ecommerce-analysis",
@@ -124,11 +139,114 @@ const projectDetails: ProjectDetail[] = [
 
 const placeholderScreens = [1, 2, 3];
 
+/* ─── PDF Thumbnail Component ─── */
+const PdfThumbnail = ({
+  coverImage,
+  pdfUrl,
+  title,
+}: {
+  coverImage: string;
+  pdfUrl: string;
+  title: string;
+}) => (
+  <a
+    href={pdfUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group relative block overflow-hidden border border-border"
+    style={{ borderColor: "#2A3545" }}
+  >
+    <img
+      src={coverImage}
+      alt={`${title} — cover slide`}
+      className="w-full block transition-all duration-300 ease-out group-hover:scale-[1.015] group-hover:brightness-[1.06]"
+    />
+    {/* Hover overlay */}
+    <div className="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
+      <span className="inline-flex items-center gap-2.5 px-6 py-3 bg-primary text-primary-foreground font-sub text-[13px] uppercase tracking-[0.12em] rounded-sm shadow-lg">
+        <FileText size={16} />
+        View Full Deck
+      </span>
+    </div>
+  </a>
+);
+
+/* ─── Screen Gallery Component ─── */
+const ScreenGallery = ({
+  slug,
+  screens,
+  title,
+  coverBg,
+}: {
+  slug: string;
+  screens?: string[];
+  title: string;
+  coverBg?: string;
+}) => {
+  if (screens) {
+    const continuityPairs: Record<string, number[][]> = {
+      "multi-asset-fund": [[1, 2], [3, 4]],
+    };
+    const pairs = continuityPairs[slug] || [];
+
+    return (
+      <div className="flex flex-col gap-[20px]">
+        {screens.map((src, i) => {
+          const isBottomOfPair = pairs.some(([a]) => a === i);
+          const isTopOfPair = pairs.some(([, b]) => b === i);
+
+          const borderStyle: React.CSSProperties = {
+            borderLeft: "1px solid #2A3545",
+            borderRight: "1px solid #2A3545",
+            borderTop: isTopOfPair ? "none" : "1px solid #2A3545",
+            borderBottom: isBottomOfPair ? "none" : "1px solid #2A3545",
+          };
+
+          return (
+            <ScrollReveal key={i} delay={i * 0.06}>
+              {i > 0 && !isTopOfPair && (
+                <div className="mb-[20px] border-t" style={{ borderColor: "rgba(30, 42, 30, 0.2)" }} />
+              )}
+              <div style={isTopOfPair ? { marginTop: "-20px" } : undefined}>
+                <img
+                  src={src}
+                  alt={`${title} screen ${i + 1}`}
+                  className="w-full block transition-[filter] duration-[250ms] ease-in-out hover:brightness-[1.04]"
+                  style={borderStyle}
+                />
+              </div>
+            </ScrollReveal>
+          );
+        })}
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-[20px]">
+      {placeholderScreens.map((i) => (
+        <ScrollReveal key={i} delay={i * 0.08}>
+          <div
+            className="aspect-[16/10] border border-border flex items-center justify-center"
+            style={{ backgroundColor: coverBg || "hsl(var(--muted))" }}
+          >
+            <span className="font-sub text-[12px] uppercase tracking-[0.15em] text-foreground/20">
+              Screen {i} — Coming Soon
+            </span>
+          </div>
+        </ScrollReveal>
+      ))}
+    </div>
+  );
+};
+
+/* ─── Main Page ─── */
 const ProjectPage = () => {
   const { slug } = useParams();
   const detail = projectDetails.find((p) => p.slug === slug);
   const projectMeta = projects.find((p) => p.slug === slug);
   const screens = slug ? projectScreens[slug] : undefined;
+  const isPdfProject = !!detail?.pdfUrl;
 
   if (!detail) {
     return (
@@ -166,10 +284,11 @@ const ProjectPage = () => {
             </div>
           </motion.div>
 
+          {/* Problem / Contribution columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <ScrollReveal>
               <h3 className="font-sub text-[12px] uppercase tracking-[0.12em] text-primary mb-3">
-                Problem Statement
+                {isPdfProject ? "The Situation" : "Problem Statement"}
               </h3>
               <p className="text-foreground/80 text-[15px] leading-relaxed">
                 {detail.problem}
@@ -177,7 +296,7 @@ const ProjectPage = () => {
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h3 className="font-sub text-[12px] uppercase tracking-[0.12em] text-primary mb-3">
-                Contribution
+                {isPdfProject ? "My Contribution" : "Contribution"}
               </h3>
               <p className="text-foreground/80 text-[15px] leading-relaxed">
                 {detail.contribution}
@@ -185,87 +304,88 @@ const ProjectPage = () => {
             </ScrollReveal>
           </div>
 
-          {detail.ctaUrl && !detail.ctas && (
-            <ScrollReveal>
-              <a
-                href={detail.ctaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-button inline-flex items-center gap-2 mb-16"
-              >
-                <ExternalLink size={14} />
-                {detail.ctaLabel}
-              </a>
-            </ScrollReveal>
-          )}
+          {/* ── PDF Project: Thumbnail + CTAs ── */}
+          {isPdfProject && detail.coverImage && (
+            <>
+              <ScrollReveal>
+                <PdfThumbnail
+                  coverImage={detail.coverImage}
+                  pdfUrl={detail.pdfUrl!}
+                  title={detail.title}
+                />
+              </ScrollReveal>
 
-          {detail.ctas && detail.ctas.length > 0 && (
-            <ScrollReveal>
-              <div className="flex flex-wrap gap-4 mb-16">
-                {detail.ctas.map((cta) => (
+              <ScrollReveal delay={0.1}>
+                <div className="flex flex-wrap gap-4 mt-8 mb-16">
                   <a
-                    key={cta.label}
-                    href={cta.url}
+                    href={detail.pdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="cta-button inline-flex items-center gap-2"
                   >
-                    <ExternalLink size={14} />
-                    {cta.label}
+                    <FileText size={14} />
+                    Open Full PDF
                   </a>
-                ))}
-              </div>
-            </ScrollReveal>
+                  {detail.secondaryCta && (
+                    <a
+                      href={detail.secondaryCta.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cta-button inline-flex items-center gap-2"
+                    >
+                      <ExternalLink size={14} />
+                      {detail.secondaryCta.label}
+                    </a>
+                  )}
+                </div>
+              </ScrollReveal>
+            </>
           )}
 
-          {/* Project screens */}
-          <div className="flex flex-col gap-[20px]">
-            {screens ? (
-              screens.map((src, i) => {
-                const continuityPairs: Record<string, number[][]> = {
-                  "multi-asset-fund": [[1, 2], [3, 4]],
-                };
-                const pairs = slug ? continuityPairs[slug] || [] : [];
-                const isBottomOfPair = pairs.some(([a]) => a === i);
-                const isTopOfPair = pairs.some(([, b]) => b === i);
-                const noDivider = isTopOfPair;
-                const noGap = isTopOfPair;
+          {/* ── Screen-based projects: CTAs + gallery ── */}
+          {!isPdfProject && (
+            <>
+              {detail.ctaUrl && !detail.ctas && (
+                <ScrollReveal>
+                  <a
+                    href={detail.ctaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cta-button inline-flex items-center gap-2 mb-16"
+                  >
+                    <ExternalLink size={14} />
+                    {detail.ctaLabel}
+                  </a>
+                </ScrollReveal>
+              )}
 
-                const borderStyle: React.CSSProperties = {
-                  borderLeft: "1px solid #2A3545",
-                  borderRight: "1px solid #2A3545",
-                  borderTop: isTopOfPair ? "none" : "1px solid #2A3545",
-                  borderBottom: isBottomOfPair ? "none" : "1px solid #2A3545",
-                };
-
-                return (
-                  <ScrollReveal key={i} delay={i * 0.06}>
-                    {i > 0 && !noDivider && (
-                      <div className="mb-[20px] border-t" style={{ borderColor: "rgba(30, 42, 30, 0.2)" }} />
-                    )}
-                    <div style={noGap ? { marginTop: "-20px" } : undefined}>
-                      <img
-                        src={src}
-                        alt={`${detail.title} screen ${i + 1}`}
-                        className="w-full block transition-[filter] duration-[250ms] ease-in-out hover:brightness-[1.04]"
-                        style={borderStyle}
-                      />
-                    </div>
-                  </ScrollReveal>
-                );
-              })
-            ) : (
-              placeholderScreens.map((i) => (
-                <ScrollReveal key={i} delay={i * 0.08}>
-                  <div className="aspect-[16/10] border border-border flex items-center justify-center" style={{ backgroundColor: projectMeta?.coverBg || "hsl(var(--muted))" }}>
-                    <span className="font-sub text-[12px] uppercase tracking-[0.15em] text-foreground/20">
-                      Screen {i} — Coming Soon
-                    </span>
+              {detail.ctas && detail.ctas.length > 0 && (
+                <ScrollReveal>
+                  <div className="flex flex-wrap gap-4 mb-16">
+                    {detail.ctas.map((cta) => (
+                      <a
+                        key={cta.label}
+                        href={cta.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cta-button inline-flex items-center gap-2"
+                      >
+                        <ExternalLink size={14} />
+                        {cta.label}
+                      </a>
+                    ))}
                   </div>
                 </ScrollReveal>
-              ))
-            )}
-          </div>
+              )}
+
+              <ScreenGallery
+                slug={slug!}
+                screens={screens}
+                title={detail.title}
+                coverBg={projectMeta?.coverBg}
+              />
+            </>
+          )}
         </div>
       </main>
       <Footer />
