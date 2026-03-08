@@ -101,6 +101,7 @@ const ProjectPage = () => {
   const { slug } = useParams();
   const detail = projectDetails.find((p) => p.slug === slug);
   const projectMeta = projects.find((p) => p.slug === slug);
+  const screens = slug ? projectScreens[slug] : undefined;
 
   if (!detail) {
     return (
