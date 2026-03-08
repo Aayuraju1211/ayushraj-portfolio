@@ -3,34 +3,164 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 
-import ugfLogo from "@/assets/ugf-logo.png";
-import quarkLogo from "@/assets/quark-logo.jpg";
-import prismLogo from "@/assets/prism-logo.png";
-import spotifyLogo from "@/assets/spotify-logo.png";
-import dataAnalysisLogo from "@/assets/data-analysis-logo.png";
-import yatraLogo from "@/assets/yatra-logo.png";
-import yourdostLogo from "@/assets/yourdost-logo.png";
+import ugFullLogo from "@/assets/ug-full-logo.png";
+import quarkLogo from "@/assets/quark-2025-logo.png";
+import prismLogo from "@/assets/prism-brain-logo.png";
+import spotifyLogo from "@/assets/spotify-full-logo.png";
+import yatraLogo from "@/assets/yatra-wordmark.png";
+import yourdostLogo from "@/assets/yourdost-icon.png";
 
 export interface Project {
   slug: string;
   title: string;
   tags: string[];
-  coverColor: string;
+  coverBg: string;
   coverImage?: string;
+  logoMaxWidth: string;
+  label?: string;
+  typographic?: boolean;
 }
 
 export const projects: Project[] = [
-  { slug: "ugf-website", title: "UGF Website", tags: ["Figma Prototype", "Work Experience"], coverColor: "from-primary/10 to-primary/5", coverImage: ugfLogo },
-  { slug: "multi-asset-fund", title: "Multi-Asset Fund", tags: ["Figma Prototype", "Work Experience"], coverColor: "from-muted to-secondary", coverImage: ugfLogo },
-  { slug: "campus-ambassador", title: "Campus Ambassador Website", tags: ["Figma Prototype"], coverColor: "from-secondary to-muted", coverImage: quarkLogo },
-  { slug: "prism-mental-health", title: "Prism Mental Health Wellness MVP", tags: ["MVP", "Case Study"], coverColor: "from-primary/5 to-muted", coverImage: prismLogo },
-  { slug: "spotify-prd", title: "Spotify PRD", tags: ["PRD", "Case Study"], coverColor: "from-muted to-primary/10", coverImage: spotifyLogo },
-  { slug: "ecommerce-analysis", title: "E-Commerce Sales Analysis", tags: ["Data Analysis", "Python", "Power BI"], coverColor: "from-secondary to-primary/5", coverImage: dataAnalysisLogo },
-  { slug: "yatra-dashboard", title: "Tracking Dashboard for Yatra Freight", tags: ["Case Study"], coverColor: "from-primary/10 to-secondary", coverImage: yatraLogo },
-  { slug: "yourdost-churn", title: "Reducing Churn & Measuring ROI for yourDOST", tags: ["Case Study"], coverColor: "from-muted to-primary/5", coverImage: yourdostLogo },
+  {
+    slug: "ugf-website",
+    title: "UGF Website",
+    tags: ["Figma Prototype", "Work Experience"],
+    coverBg: "#0D1F1A",
+    coverImage: ugFullLogo,
+    logoMaxWidth: "50%",
+  },
+  {
+    slug: "multi-asset-fund",
+    title: "Multi-Asset Fund",
+    tags: ["Figma Prototype", "Work Experience"],
+    coverBg: "#0F1C1A",
+    coverImage: ugFullLogo,
+    logoMaxWidth: "50%",
+    label: "MULTI-ASSET FUND",
+  },
+  {
+    slug: "campus-ambassador",
+    title: "Campus Ambassador Website",
+    tags: ["Figma Prototype"],
+    coverBg: "#0C0C1A",
+    coverImage: quarkLogo,
+    logoMaxWidth: "60%",
+  },
+  {
+    slug: "prism-mental-health",
+    title: "Prism Mental Health Wellness MVP",
+    tags: ["MVP", "Case Study"],
+    coverBg: "#0A1520",
+    coverImage: prismLogo,
+    logoMaxWidth: "40%",
+  },
+  {
+    slug: "spotify-prd",
+    title: "Spotify PRD",
+    tags: ["PRD", "Case Study"],
+    coverBg: "#0A1A0A",
+    coverImage: spotifyLogo,
+    logoMaxWidth: "55%",
+  },
+  {
+    slug: "ecommerce-analysis",
+    title: "E-Commerce Sales Analysis",
+    tags: ["Data Analysis", "Python", "Power BI"],
+    coverBg: "#0D0D1A",
+    typographic: true,
+    logoMaxWidth: "0%",
+  },
+  {
+    slug: "yatra-dashboard",
+    title: "Tracking Dashboard for Yatra Freight",
+    tags: ["Case Study"],
+    coverBg: "#1A0505",
+    coverImage: yatraLogo,
+    logoMaxWidth: "50%",
+  },
+  {
+    slug: "yourdost-churn",
+    title: "Reducing Churn & Measuring ROI for yourDOST",
+    tags: ["Case Study"],
+    coverBg: "#1A1505",
+    coverImage: yourdostLogo,
+    logoMaxWidth: "35%",
+  },
 ];
 
 const allFilters = ["All", "Case Study", "Figma Prototype", "Data Analysis", "Automation"];
+
+const ProjectCover = ({ project }: { project: Project }) => {
+  // Parse bg hex to get a lighter version for radial gradient
+  const hex = project.coverBg;
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  const lighterCenter = `rgba(${Math.min(255, r + 38)}, ${Math.min(255, g + 38)}, ${Math.min(255, b + 38)}, 0.6)`;
+  const lighterCenterHover = `rgba(${Math.min(255, r + 64)}, ${Math.min(255, g + 64)}, ${Math.min(255, b + 64)}, 0.6)`;
+
+  return (
+    <div
+      className="aspect-[3/2] relative overflow-hidden flex items-center justify-center group/cover"
+      style={{ backgroundColor: hex }}
+    >
+      {/* Noise texture overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          backgroundSize: "128px 128px",
+        }}
+      />
+
+      {/* Radial gradient behind logo */}
+      <div
+        className="absolute inset-0 transition-opacity duration-200 opacity-100 group-hover/cover:opacity-100 pointer-events-none"
+        style={{
+          background: `radial-gradient(circle at center, ${lighterCenter} 0%, transparent 60%)`,
+        }}
+      />
+      <div
+        className="absolute inset-0 transition-opacity duration-200 opacity-0 group-hover/cover:opacity-100 pointer-events-none"
+        style={{
+          background: `radial-gradient(circle at center, ${lighterCenterHover} 0%, transparent 60%)`,
+        }}
+      />
+
+      {/* Logo / Content */}
+      {project.typographic ? (
+        <div className="relative z-10 flex flex-col items-center justify-center transition-transform duration-200 ease-out group-hover/cover:scale-[1.03]">
+          <span className="font-heading text-[48px] leading-[1.1] text-[#E8E4DC] text-center">
+            E-COM
+          </span>
+          <span className="font-heading text-[48px] leading-[1.1] text-[#E8E4DC] text-center">
+            SALES
+          </span>
+          <span className="font-sub text-[11px] tracking-[0.15em] text-primary mt-3">
+            Power BI · Python
+          </span>
+        </div>
+      ) : (
+        <div className="relative z-10 flex flex-col items-center justify-center transition-transform duration-200 ease-out group-hover/cover:scale-[1.03]">
+          {project.label && (
+            <span className="font-sub text-[10px] uppercase tracking-[0.25em] mb-3" style={{ color: "#2A7A6F" }}>
+              {project.label}
+            </span>
+          )}
+          {project.coverImage && (
+            <img
+              src={project.coverImage}
+              alt={project.title}
+              className="object-contain"
+              style={{ maxWidth: project.logoMaxWidth }}
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -79,17 +209,7 @@ const Projects = () => {
             {filtered.map((project, i) => (
               <ScrollReveal key={project.slug} delay={i * 0.05}>
                 <Link to={`/project/${project.slug}`} className="block project-card group">
-                  <div className="aspect-[16/9] overflow-hidden rounded-t-[24px]">
-                    <div className={`w-full h-full bg-gradient-to-br ${project.coverColor} flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-110`}>
-                      {project.coverImage ? (
-                        <img src={project.coverImage} alt={project.title} className="w-full h-full object-cover" />
-                      ) : (
-                        <span className="font-heading text-lg text-foreground/30 group-hover:text-foreground/50 transition-colors">
-                          {project.title}
-                        </span>
-                      )}
-                    </div>
-                  </div>
+                  <ProjectCover project={project} />
                   <div className="p-5">
                     <h3 className="font-heading text-lg font-medium text-foreground mb-3">
                       {project.title}

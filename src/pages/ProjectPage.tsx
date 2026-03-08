@@ -165,7 +165,7 @@ const ProjectPage = () => {
           <div className="space-y-8">
             {placeholderScreens.map((i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className={`aspect-[16/10] border border-border bg-gradient-to-br ${projectMeta?.coverColor || "from-muted to-secondary"} flex items-center justify-center`}>
+                <div className="aspect-[16/10] border border-border flex items-center justify-center" style={{ backgroundColor: projectMeta?.coverBg || "hsl(var(--muted))" }}>
                   <span className="font-sub text-[12px] uppercase tracking-[0.15em] text-foreground/20">
                     Screen {i} — Coming Soon
                   </span>
