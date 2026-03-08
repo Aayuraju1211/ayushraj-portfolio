@@ -19,6 +19,7 @@ export interface Project {
   logoMaxWidth: string;
   label?: string;
   typographic?: boolean;
+  lightCard?: boolean;
 }
 
 export const projects: Project[] = [
@@ -26,18 +27,20 @@ export const projects: Project[] = [
     slug: "ugf-website",
     title: "UGF Website",
     tags: ["Figma Prototype", "Work Experience"],
-    coverBg: "#0D1F1A",
+    coverBg: "#F0EDE6",
     coverImage: ugFullLogo,
     logoMaxWidth: "50%",
+    lightCard: true,
   },
   {
     slug: "multi-asset-fund",
     title: "Multi-Asset Fund",
     tags: ["Figma Prototype", "Work Experience"],
-    coverBg: "#0F1C1A",
+    coverBg: "#F0EDE6",
     coverImage: ugFullLogo,
     logoMaxWidth: "50%",
     label: "MULTI-ASSET FUND",
+    lightCard: true,
   },
   {
     slug: "campus-ambassador",
@@ -85,25 +88,39 @@ export const projects: Project[] = [
     tags: ["Case Study"],
     coverBg: "#1A1505",
     coverImage: yourdostLogo,
-    logoMaxWidth: "35%",
+    logoMaxWidth: "55%",
   },
 ];
 
 const allFilters = ["All", "Case Study", "Figma Prototype", "Data Analysis", "Automation"];
 
 const ProjectCover = ({ project }: { project: Project }) => {
-  // Parse bg hex to get a lighter version for radial gradient
   const hex = project.coverBg;
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  const lighterCenter = `rgba(${Math.min(255, r + 38)}, ${Math.min(255, g + 38)}, ${Math.min(255, b + 38)}, 0.6)`;
-  const lighterCenterHover = `rgba(${Math.min(255, r + 64)}, ${Math.min(255, g + 64)}, ${Math.min(255, b + 64)}, 0.6)`;
+  const isLight = project.lightCard;
+
+  let lighterCenter: string;
+  let lighterCenterHover: string;
+
+  if (isLight) {
+    lighterCenter = "#F7F5F1";
+    lighterCenterHover = "#F7F5F1";
+  } else {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    lighterCenter = `rgba(${Math.min(255, r + 38)}, ${Math.min(255, g + 38)}, ${Math.min(255, b + 38)}, 0.6)`;
+    lighterCenterHover = `rgba(${Math.min(255, r + 64)}, ${Math.min(255, g + 64)}, ${Math.min(255, b + 64)}, 0.6)`;
+  }
+
+  const edgeColor = isLight ? "#E8E4DC" : "transparent";
 
   return (
     <div
-      className="aspect-[3/2] relative overflow-hidden flex items-center justify-center group/cover"
-      style={{ backgroundColor: hex }}
+      className={`aspect-[3/2] relative overflow-hidden flex items-center justify-center group/cover${isLight ? " border-b" : ""}`}
+      style={{
+        backgroundColor: hex,
+        ...(isLight ? { borderColor: "#D9D5CE", borderWidth: "1px", borderStyle: "solid", borderBottom: "none" } : {}),
+      }}
     >
       {/* Noise texture overlay */}
       <div
@@ -114,23 +131,23 @@ const ProjectCover = ({ project }: { project: Project }) => {
         }}
       />
 
-      {/* Radial gradient behind logo */}
+      {/* Radial gradient */}
       <div
         className="absolute inset-0 transition-opacity duration-200 opacity-100 group-hover/cover:opacity-100 pointer-events-none"
         style={{
-          background: `radial-gradient(circle at center, ${lighterCenter} 0%, transparent 60%)`,
+          background: `radial-gradient(circle at center, ${lighterCenter} 0%, ${edgeColor} 60%)`,
         }}
       />
       <div
         className="absolute inset-0 transition-opacity duration-200 opacity-0 group-hover/cover:opacity-100 pointer-events-none"
         style={{
-          background: `radial-gradient(circle at center, ${lighterCenterHover} 0%, transparent 60%)`,
+          background: `radial-gradient(circle at center, ${lighterCenterHover} 0%, ${edgeColor} 60%)`,
         }}
       />
 
       {/* Logo / Content */}
       {project.typographic ? (
-        <div className="relative z-10 flex flex-col items-center justify-center transition-transform duration-200 ease-out group-hover/cover:scale-[1.03]">
+        <div className="relative z-10 flex flex-col items-center justify-center transition-transform duration-[400ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover/cover:scale-[1.08]">
           <span className="font-heading text-[48px] leading-[1.1] text-[#E8E4DC] text-center">
             E-COM
           </span>
@@ -142,9 +159,9 @@ const ProjectCover = ({ project }: { project: Project }) => {
           </span>
         </div>
       ) : (
-        <div className="relative z-10 flex flex-col items-center justify-center transition-transform duration-200 ease-out group-hover/cover:scale-[1.03]">
+        <div className="relative z-10 flex flex-col items-center justify-center transition-transform duration-[400ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover/cover:scale-[1.08]">
           {project.label && (
-            <span className="font-sub text-[10px] uppercase tracking-[0.25em] mb-3" style={{ color: "#2A7A6F" }}>
+            <span className="font-sub text-[10px] uppercase tracking-[0.25em] mb-3" style={{ color: isLight ? "#2A7A6F" : "#2A7A6F" }}>
               {project.label}
             </span>
           )}
