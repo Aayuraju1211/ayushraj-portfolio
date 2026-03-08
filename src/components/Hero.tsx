@@ -83,7 +83,7 @@ const Hero = () => {
             {/* Column 2: Image Card */}
             <motion.div className="flex items-stretch" variants={fadeUp}>
               <div className="border border-border rounded-[16px] overflow-hidden bg-card/40 backdrop-blur-sm w-full flex flex-col">
-                <div className="overflow-hidden flex-1">
+                <div className="overflow-hidden h-[420px]">
                   <img
                     src={ayushPhoto}
                     alt="Ayush Raj"
