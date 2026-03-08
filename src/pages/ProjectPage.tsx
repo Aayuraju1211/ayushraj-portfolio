@@ -6,6 +6,16 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { projects } from "../components/Projects";
 
+import ugfScreen1 from "@/assets/ugf-screen-1.png";
+import ugfScreen2 from "@/assets/ugf-screen-2.png";
+import ugfScreen3 from "@/assets/ugf-screen-3.png";
+import ugfScreen4 from "@/assets/ugf-screen-4.png";
+import ugfScreen5 from "@/assets/ugf-screen-5.png";
+
+const projectScreens: Record<string, string[]> = {
+  "ugf-website": [ugfScreen1, ugfScreen2, ugfScreen3, ugfScreen4, ugfScreen5],
+};
+
 interface ProjectDetail {
   slug: string;
   title: string;
