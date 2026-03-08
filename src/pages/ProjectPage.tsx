@@ -78,8 +78,10 @@ const projectDetails: ProjectDetail[] = [
     tags: ["Figma Prototype", "Work Experience"],
     problem: "Unity Growth Fund's digital presence needed an overhaul into a credibility-building platform for LP investors and prospective founders.",
     contribution: "Led stakeholder requirement sessions and managed iterative feedback loops. Owned end-to-end product lifecycle from brief to high-fidelity Figma prototype. Coordinated design-to-development handoff with QA and implemented technical SEO from Day 1.",
-    ctaLabel: "Open Prototype in Figma",
-    ctaUrl: "#",
+    ctas: [
+      { label: "Open Prototype in Figma", url: "https://www.figma.com/proto/F7u34sWAgL1wjdNsUJTMxy/UGF-Website?page-id=0%3A1&node-id=1-412&p=f&viewport=-2003%2C-529%2C0.34&t=0dsVWolqH3FJjTiF-1&scaling=scale-down&content-scaling=fixed" },
+      { label: "Open Website", url: "https://www.unitygrowthfund.com/" },
+    ],
   },
   {
     slug: "multi-asset-fund",
