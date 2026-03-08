@@ -19,6 +19,15 @@ import caScreen5 from "@/assets/ca-screen-5.png";
 import caScreen6 from "@/assets/ca-screen-6.png";
 import caScreen7 from "@/assets/ca-screen-7.png";
 import caScreen8 from "@/assets/ca-screen-8.png";
+import mafScreen1 from "@/assets/maf-screen-1.png";
+import mafScreen2 from "@/assets/maf-screen-2.png";
+import mafScreen3 from "@/assets/maf-screen-3.png";
+import mafScreen4 from "@/assets/maf-screen-4.png";
+import mafScreen5 from "@/assets/maf-screen-5.png";
+import mafScreen6 from "@/assets/maf-screen-6.png";
+import mafScreen7 from "@/assets/maf-screen-7.png";
+import mafScreen8 from "@/assets/maf-screen-8.png";
+import mafScreen9 from "@/assets/maf-screen-9.png";
 
 const projectScreens: Record<string, string[]> = {
   "ugf-website": [ugfScreen1, ugfScreen2, ugfScreen3, ugfScreen4, ugfScreen5],
