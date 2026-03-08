@@ -71,15 +71,43 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Right Column - Photo */}
+            {/* Right Column - Photo Card */}
             <motion.div className="flex items-center justify-center pt-[100px]" variants={fadeUp}>
-              <div className="rounded-[16px] overflow-hidden w-[315px] h-[400px]">
-                <img
-                  src={ayushPhoto}
-                  alt="Ayush Raj"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
+              <div className="border border-border rounded-[16px] overflow-hidden bg-card/40 backdrop-blur-sm w-[315px]">
+                <div className="h-[400px] overflow-hidden">
+                  <img
+                    src={ayushPhoto}
+                    alt="Ayush Raj"
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
+                </div>
+                <div className="flex flex-col items-center py-5 px-4 gap-2.5">
+                  <h2 className="text-lg font-heading font-semibold text-foreground">
+                    Ayush Raj
+                  </h2>
+                  <p className="text-sm text-primary font-body">
+                    BITS Pilani '26
+                  </p>
+                  <div className="flex items-center justify-center gap-3 mt-1">
+                    <a
+                      href="https://linkedin.com/in/ayushraj"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin size={18} />
+                    </a>
+                    <a
+                      href="mailto:ayush@example.com"
+                      className="p-2.5 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
+                      aria-label="Email"
+                    >
+                      <Mail size={18} />
+                    </a>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
