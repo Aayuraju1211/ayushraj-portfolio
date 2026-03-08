@@ -16,6 +16,11 @@ const projectScreens: Record<string, string[]> = {
   "ugf-website": [ugfScreen1, ugfScreen2, ugfScreen3, ugfScreen4, ugfScreen5],
 };
 
+interface CTA {
+  label: string;
+  url: string;
+}
+
 interface ProjectDetail {
   slug: string;
   title: string;
@@ -24,6 +29,7 @@ interface ProjectDetail {
   contribution: string;
   ctaLabel?: string;
   ctaUrl?: string;
+  ctas?: CTA[];
 }
 
 const projectDetails: ProjectDetail[] = [
@@ -72,8 +78,10 @@ const projectDetails: ProjectDetail[] = [
     tags: ["Figma Prototype", "Work Experience"],
     problem: "Unity Growth Fund's digital presence needed an overhaul into a credibility-building platform for LP investors and prospective founders.",
     contribution: "Led stakeholder requirement sessions and managed iterative feedback loops. Owned end-to-end product lifecycle from brief to high-fidelity Figma prototype. Coordinated design-to-development handoff with QA and implemented technical SEO from Day 1.",
-    ctaLabel: "Open Prototype in Figma",
-    ctaUrl: "#",
+    ctas: [
+      { label: "Open Prototype in Figma", url: "https://www.figma.com/proto/F7u34sWAgL1wjdNsUJTMxy/UGF-Website?page-id=0%3A1&node-id=1-412&p=f&viewport=-2003%2C-529%2C0.34&t=0dsVWolqH3FJjTiF-1&scaling=scale-down&content-scaling=fixed" },
+      { label: "Open Website", url: "https://www.unitygrowthfund.com/" },
+    ],
   },
   {
     slug: "multi-asset-fund",
@@ -158,7 +166,7 @@ const ProjectPage = () => {
             </ScrollReveal>
           </div>
 
-          {detail.ctaUrl && (
+          {detail.ctaUrl && !detail.ctas && (
             <ScrollReveal>
               <a
                 href={detail.ctaUrl}
@@ -169,6 +177,25 @@ const ProjectPage = () => {
                 <ExternalLink size={14} />
                 {detail.ctaLabel}
               </a>
+            </ScrollReveal>
+          )}
+
+          {detail.ctas && detail.ctas.length > 0 && (
+            <ScrollReveal>
+              <div className="flex flex-wrap gap-4 mb-16">
+                {detail.ctas.map((cta) => (
+                  <a
+                    key={cta.label}
+                    href={cta.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cta-button inline-flex items-center gap-2"
+                  >
+                    <ExternalLink size={14} />
+                    {cta.label}
+                  </a>
+                ))}
+              </div>
             </ScrollReveal>
           )}
 
