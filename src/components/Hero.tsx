@@ -13,7 +13,7 @@ const fadeUp = {
 
 const stagger = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.12 } },
 };
 
 const Hero = () => {
@@ -21,37 +21,72 @@ const Hero = () => {
     <section className="h-[calc(100vh-80px)] flex items-center overflow-hidden max-md:h-auto max-md:py-12">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 w-full">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-20 gap-6 md:gap-8 items-start"
-          style={{ gridTemplateColumns: "1fr" }}
           variants={stagger}
           initial="hidden"
           animate="visible"
         >
-          {/* Three-column grid for desktop */}
-          <div className="hidden md:grid md:grid-cols-[45%_25%_30%] gap-6 items-stretch w-full">
-            {/* Column 1: Intro Text */}
-            <motion.div className="flex flex-col justify-center gap-6" variants={fadeUp}>
-              <div>
-                <h1 className="text-3xl md:text-4xl font-heading font-semibold text-foreground leading-[1.1] mb-5">
-                  Hey there! I'm Ayush Raj 👋
+          {/* Desktop Layout */}
+          <div className="hidden md:flex flex-col gap-6 w-full">
+            {/* Top Row: Intro Text + Image Card */}
+            <div className="grid grid-cols-[1fr_280px] gap-8 items-stretch">
+              {/* Intro Text */}
+              <motion.div className="flex flex-col justify-center" variants={fadeUp}>
+                <h1 className="text-4xl md:text-[3.2rem] lg:text-[3.8rem] font-heading font-semibold text-foreground leading-[1.08] mb-6">
+                  Building products at the intersection of AI, data, and human behavior.
                 </h1>
-                <p className="text-base md:text-[17px] text-foreground/85 font-body leading-[1.8] max-w-2xl">
-                  I'm a final-year student with a keen interest in Product
-                  Management. I recently completed a 6-month Product Management
-                  Internship at{" "}
-                  <span className="text-foreground font-medium">
-                    Unity Growth Fund
-                  </span>
-                  , focusing on user research, data analysis, and product
-                  strategy...
+                <p className="text-base md:text-[17px] text-foreground/50 font-body leading-[1.8] max-w-2xl">
+                  Final-year ME student at BITS Pilani. Previously at{" "}
+                  <span className="text-primary">Unity Growth Fund</span>{" "}
+                  and{" "}
+                  <span className="text-primary">Grasim Industries</span>.
                 </p>
-              </div>
-            </motion.div>
+              </motion.div>
 
-            {/* Column 2: Education + Resume Cards */}
-            <motion.div className="flex flex-col gap-4 justify-center" variants={fadeUp}>
+              {/* Image Card */}
+              <motion.div className="flex items-stretch" variants={fadeUp}>
+                <div className="border border-border rounded-[16px] overflow-hidden bg-card/40 backdrop-blur-sm w-full flex flex-col">
+                  <div className="overflow-hidden flex-1 min-h-[280px]">
+                    <img
+                      src={ayushPhoto}
+                      alt="Ayush Raj"
+                      className="w-full h-full object-cover object-[40%_top] hover:scale-105 transition-transform duration-500"
+                      loading="eager"
+                    />
+                  </div>
+                  <div className="flex flex-col items-center p-4 gap-2">
+                    <h2 className="text-lg font-heading font-semibold text-foreground">
+                      Ayush Raj
+                    </h2>
+                    <p className="text-sm text-primary font-body">
+                      BITS Pilani '26
+                    </p>
+                    <div className="flex items-center justify-center gap-2 mt-1">
+                      <a
+                        href="https://linkedin.com/in/ayushraj"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
+                        aria-label="LinkedIn"
+                      >
+                        <Linkedin size={16} />
+                      </a>
+                      <a
+                        href="mailto:ayush@example.com"
+                        className="p-2 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
+                        aria-label="Email"
+                      >
+                        <Mail size={16} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Bottom Row: Education + Resume Cards side by side */}
+            <motion.div className="grid grid-cols-2 gap-6" variants={fadeUp}>
               {/* Education Box */}
-              <div className="border border-border rounded-[16px] bg-card/40 backdrop-blur-sm p-5 flex-1 flex flex-col justify-center">
+              <div className="border border-border rounded-[16px] bg-card/40 backdrop-blur-sm p-5">
                 <p className="font-sub uppercase text-[10px] tracking-[0.18em] text-foreground/25 mb-2">
                   Education
                 </p>
@@ -66,7 +101,7 @@ const Hero = () => {
               </div>
 
               {/* Resume Box */}
-              <div className="border border-border rounded-[16px] bg-card/40 backdrop-blur-sm p-5 flex-1 flex flex-col justify-center">
+              <div className="border border-border rounded-[16px] bg-card/40 backdrop-blur-sm p-5 flex flex-col">
                 <p className="font-sub uppercase text-[10px] tracking-[0.18em] text-foreground/25 mb-2">
                   Professional Resume
                 </p>
@@ -77,56 +112,16 @@ const Hero = () => {
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-[8px] bg-foreground text-background font-sub uppercase text-[11px] tracking-[0.12em] font-medium hover:opacity-90 transition-opacity duration-200"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-[8px] bg-foreground text-background font-sub uppercase text-[11px] tracking-[0.12em] font-medium hover:opacity-90 transition-opacity duration-200 mt-auto"
                 >
                   <Download size={14} />
                   Download PDF
                 </a>
               </div>
             </motion.div>
-
-            {/* Column 3: Image Card */}
-            <motion.div className="flex items-center justify-end" variants={fadeUp}>
-              <div className="border border-border rounded-[16px] overflow-hidden bg-card/40 backdrop-blur-sm w-[85%]">
-                <div className="overflow-hidden h-[280px]">
-                  <img
-                    src={ayushPhoto}
-                    alt="Ayush Raj"
-                    className="w-full h-full object-cover object-[40%_top] hover:scale-105 transition-transform duration-500"
-                    loading="eager"
-                  />
-                </div>
-                <div className="flex flex-col items-center p-4 gap-2">
-                  <h2 className="text-lg font-heading font-semibold text-foreground">
-                    Ayush Raj
-                  </h2>
-                  <p className="text-sm text-primary font-body">
-                    BITS Pilani '26
-                  </p>
-                  <div className="flex items-center justify-center gap-2 mt-1">
-                    <a
-                      href="https://linkedin.com/in/ayushraj"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
-                      aria-label="LinkedIn"
-                    >
-                      <Linkedin size={16} />
-                    </a>
-                    <a
-                      href="mailto:ayush@example.com"
-                      className="p-2 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
-                      aria-label="Email"
-                    >
-                      <Mail size={16} />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
           </div>
 
-          {/* Mobile layout: Image Card on top, then Intro, then Cards */}
+          {/* Mobile Layout */}
           <div className="flex flex-col gap-6 md:hidden">
             {/* Profile Card */}
             <motion.div variants={fadeUp}>
@@ -140,12 +135,8 @@ const Hero = () => {
                   />
                 </div>
                 <div className="flex flex-col items-center p-4 gap-2">
-                  <h2 className="text-lg font-heading font-semibold text-foreground">
-                    Ayush Raj
-                  </h2>
-                  <p className="text-sm text-primary font-body">
-                    BITS Pilani '26
-                  </p>
+                  <h2 className="text-lg font-heading font-semibold text-foreground">Ayush Raj</h2>
+                  <p className="text-sm text-primary font-body">BITS Pilani '26</p>
                   <div className="flex items-center justify-center gap-2 mt-1">
                     <a href="https://linkedin.com/in/ayushraj" target="_blank" rel="noopener noreferrer" className="p-2 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200" aria-label="LinkedIn"><Linkedin size={16} /></a>
                     <a href="mailto:ayush@example.com" className="p-2 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200" aria-label="Email"><Mail size={16} /></a>
@@ -156,15 +147,13 @@ const Hero = () => {
 
             {/* Intro */}
             <motion.div variants={fadeUp}>
-              <h1 className="text-3xl font-heading font-semibold text-foreground leading-[1.1] mb-5">
-                Hey there! I'm Ayush Raj 👋
+              <h1 className="text-3xl font-heading font-semibold text-foreground leading-[1.08] mb-5">
+                Building products at the intersection of AI, data, and human behavior.
               </h1>
-              <p className="text-base text-foreground/85 font-body leading-[1.8]">
-                I'm a final-year student with a keen interest in Product
-                Management. I recently completed a 6-month Product Management
-                Internship at{" "}
-                <span className="text-foreground font-medium">Unity Growth Fund</span>
-                , focusing on user research, data analysis, and product strategy...
+              <p className="text-base text-foreground/50 font-body leading-[1.8]">
+                Final-year ME student at BITS Pilani. Previously at{" "}
+                <span className="text-primary">Unity Growth Fund</span>{" "}
+                and <span className="text-primary">Grasim Industries</span>.
               </p>
             </motion.div>
 
