@@ -87,7 +87,7 @@ export const projects: Project[] = [
     tags: ["Case Study"],
     coverBg: "#1A1505",
     coverImage: yourdostLogo,
-    logoMaxWidth: "35%",
+    logoMaxWidth: "55%",
   },
 ];
 
