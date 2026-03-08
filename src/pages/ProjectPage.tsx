@@ -221,19 +221,39 @@ const ProjectPage = () => {
           {/* Project screens */}
           <div className="flex flex-col gap-[20px]">
             {screens ? (
-              screens.map((src, i) => (
-                <ScrollReveal key={i} delay={i * 0.06}>
-                  {i > 0 && (
-                    <div className="mb-[20px] border-t" style={{ borderColor: "rgba(30, 42, 30, 0.2)" }} />
-                  )}
-                  <img
-                    src={src}
-                    alt={`${detail.title} screen ${i + 1}`}
-                    className="w-full block transition-[filter] duration-[250ms] ease-in-out hover:brightness-[1.04]"
-                    style={{ border: "1px solid #2A3545" }}
-                  />
-                </ScrollReveal>
-              ))
+              screens.map((src, i) => {
+                const continuityPairs: Record<string, number[][]> = {
+                  "multi-asset-fund": [[1, 2], [3, 4]],
+                };
+                const pairs = slug ? continuityPairs[slug] || [] : [];
+                const isBottomOfPair = pairs.some(([a]) => a === i);
+                const isTopOfPair = pairs.some(([, b]) => b === i);
+                const noDivider = isTopOfPair;
+                const noGap = isTopOfPair;
+
+                const borderStyle: React.CSSProperties = {
+                  borderLeft: "1px solid #2A3545",
+                  borderRight: "1px solid #2A3545",
+                  borderTop: isTopOfPair ? "none" : "1px solid #2A3545",
+                  borderBottom: isBottomOfPair ? "none" : "1px solid #2A3545",
+                };
+
+                return (
+                  <ScrollReveal key={i} delay={i * 0.06}>
+                    {i > 0 && !noDivider && (
+                      <div className="mb-[20px] border-t" style={{ borderColor: "rgba(30, 42, 30, 0.2)" }} />
+                    )}
+                    <div style={noGap ? { marginTop: "-20px" } : undefined}>
+                      <img
+                        src={src}
+                        alt={`${detail.title} screen ${i + 1}`}
+                        className="w-full block transition-[filter] duration-[250ms] ease-in-out hover:brightness-[1.04]"
+                        style={borderStyle}
+                      />
+                    </div>
+                  </ScrollReveal>
+                );
+              })
             ) : (
               placeholderScreens.map((i) => (
                 <ScrollReveal key={i} delay={i * 0.08}>
