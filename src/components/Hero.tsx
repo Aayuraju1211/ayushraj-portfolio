@@ -72,7 +72,7 @@ const Hero = () => {
             </motion.div>
 
             {/* Right Column - Photo Card */}
-            <motion.div className="flex items-center justify-center pt-[100px]" variants={fadeUp}>
+            <motion.div className="flex items-center justify-center pt-[100px] -ml-6" variants={fadeUp}>
               <div className="border border-border rounded-[16px] overflow-hidden bg-card/40 backdrop-blur-sm w-[315px]">
                 <div className="h-[350px] overflow-hidden">
                   <img
