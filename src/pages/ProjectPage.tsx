@@ -108,7 +108,7 @@ const projectDetails: ProjectDetail[] = [
     problem: "Design and launch the official Quark Campus Ambassador program website to drive nationwide outreach across 500+ colleges.",
     contribution: "Led end-to-end design from wireframe to prototype. Built sections for program overview, benefits, responsibilities, testimonials, FAQs, and a gamified ambassador leaderboard. Coordinated with the dev team for live deployment. Achieved 100% of registration targets.",
     ctaLabel: "Open Prototype in Figma",
-    ctaUrl: "#",
+    ctaUrl: "https://www.figma.com/proto/u4xa7vxd0wCoWmTBwGGKaK/CA_DevSoc?page-id=&node-id=1-2&p=f&viewport=541%2C176%2C0.14&t=Eyr0d4Y4FEifz2Vr-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2",
   },
 ];
 
