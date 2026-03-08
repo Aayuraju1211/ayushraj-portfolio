@@ -109,7 +109,7 @@ const projectDetails: ProjectDetail[] = [
     problem: "Design the UI for UGF's \"Multi-Asset\" investment vertical dashboard for LP-facing fund metrics visualization.",
     contribution: "Designed the full Figma prototype for the Multi-Asset and VC Fund verticals. Incorporated industry-standard fund metrics displays. Enabled SAM expansion and unlocked new revenue streams for the firm.",
     ctaLabel: "Open Prototype in Figma",
-    ctaUrl: "#",
+    ctaUrl: "https://www.figma.com/proto/ypPInfhpBML0NqTwd8We8a/UGF?page-id=88%3A293&node-id=600-1421&viewport=302%2C-4760%2C0.4&t=zjV2A0rly3iB8I1I-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=600%3A1421",
   },
   {
     slug: "campus-ambassador",
