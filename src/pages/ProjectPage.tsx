@@ -16,6 +16,11 @@ const projectScreens: Record<string, string[]> = {
   "ugf-website": [ugfScreen1, ugfScreen2, ugfScreen3, ugfScreen4, ugfScreen5],
 };
 
+interface CTA {
+  label: string;
+  url: string;
+}
+
 interface ProjectDetail {
   slug: string;
   title: string;
@@ -24,6 +29,7 @@ interface ProjectDetail {
   contribution: string;
   ctaLabel?: string;
   ctaUrl?: string;
+  ctas?: CTA[];
 }
 
 const projectDetails: ProjectDetail[] = [
