@@ -32,6 +32,7 @@ import mafScreen9 from "@/assets/maf-screen-9.png";
 const projectScreens: Record<string, string[]> = {
   "ugf-website": [ugfScreen1, ugfScreen2, ugfScreen3, ugfScreen4, ugfScreen5],
   "campus-ambassador": [caScreen1, caScreen2, caScreen3, caScreen4, caScreen5, caScreen6, caScreen7, caScreen8],
+  "multi-asset-fund": [mafScreen1, mafScreen2, mafScreen3, mafScreen4, mafScreen5, mafScreen6, mafScreen7, mafScreen8, mafScreen9],
 };
 
 interface CTA {
