@@ -166,7 +166,7 @@ const ProjectPage = () => {
             </ScrollReveal>
           </div>
 
-          {detail.ctaUrl && (
+          {detail.ctaUrl && !detail.ctas && (
             <ScrollReveal>
               <a
                 href={detail.ctaUrl}
@@ -177,6 +177,25 @@ const ProjectPage = () => {
                 <ExternalLink size={14} />
                 {detail.ctaLabel}
               </a>
+            </ScrollReveal>
+          )}
+
+          {detail.ctas && detail.ctas.length > 0 && (
+            <ScrollReveal>
+              <div className="flex flex-wrap gap-4 mb-16">
+                {detail.ctas.map((cta) => (
+                  <a
+                    key={cta.label}
+                    href={cta.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cta-button inline-flex items-center gap-2"
+                  >
+                    <ExternalLink size={14} />
+                    {cta.label}
+                  </a>
+                ))}
+              </div>
             </ScrollReveal>
           )}
 
