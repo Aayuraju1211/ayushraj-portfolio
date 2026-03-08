@@ -19,6 +19,7 @@ export interface Project {
   logoMaxWidth: string;
   label?: string;
   typographic?: boolean;
+  lightCard?: boolean;
 }
 
 export const projects: Project[] = [
