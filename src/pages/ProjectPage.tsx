@@ -96,7 +96,6 @@ const projectDetails: ProjectDetail[] = [
 ];
 
 const placeholderScreens = [1, 2, 3];
-  const screens = slug ? projectScreens[slug] : undefined;
 
 const ProjectPage = () => {
   const { slug } = useParams();
