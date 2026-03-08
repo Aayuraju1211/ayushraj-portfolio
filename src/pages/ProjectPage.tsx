@@ -11,9 +11,18 @@ import ugfScreen2 from "@/assets/ugf-screen-2.png";
 import ugfScreen3 from "@/assets/ugf-screen-3.png";
 import ugfScreen4 from "@/assets/ugf-screen-4.png";
 import ugfScreen5 from "@/assets/ugf-screen-5.png";
+import caScreen1 from "@/assets/ca-screen-1.png";
+import caScreen2 from "@/assets/ca-screen-2.png";
+import caScreen3 from "@/assets/ca-screen-3.png";
+import caScreen4 from "@/assets/ca-screen-4.png";
+import caScreen5 from "@/assets/ca-screen-5.png";
+import caScreen6 from "@/assets/ca-screen-6.png";
+import caScreen7 from "@/assets/ca-screen-7.png";
+import caScreen8 from "@/assets/ca-screen-8.png";
 
 const projectScreens: Record<string, string[]> = {
   "ugf-website": [ugfScreen1, ugfScreen2, ugfScreen3, ugfScreen4, ugfScreen5],
+  "campus-ambassador": [caScreen1, caScreen2, caScreen3, caScreen4, caScreen5, caScreen6, caScreen7, caScreen8],
 };
 
 interface CTA {
