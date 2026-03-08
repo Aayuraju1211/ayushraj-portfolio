@@ -31,7 +31,7 @@ const Hero = () => {
             <motion.div className="flex flex-col gap-10 pt-16" variants={fadeUp}>
               <div>
                 <h1 className="text-4xl md:text-[2.8rem] lg:text-[3.4rem] font-heading font-semibold text-foreground leading-[1.08] mb-6 max-w-[580px]">
-                  Building products at the intersection of AI, data, and human behavior.
+                  Systems thinker. Product builder.
                 </h1>
                 <p className="text-base md:text-[17px] text-foreground/50 font-body leading-[1.8] max-w-2xl">
                   Final-year ME student at BITS Pilani. Previously at{" "}
