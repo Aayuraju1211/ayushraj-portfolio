@@ -172,17 +172,33 @@ const ProjectPage = () => {
             </ScrollReveal>
           )}
 
-          {/* Placeholder screens */}
-          <div className="space-y-8">
-            {placeholderScreens.map((i) => (
-              <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="aspect-[16/10] border border-border flex items-center justify-center" style={{ backgroundColor: projectMeta?.coverBg || "hsl(var(--muted))" }}>
-                  <span className="font-sub text-[12px] uppercase tracking-[0.15em] text-foreground/20">
-                    Screen {i} — Coming Soon
-                  </span>
-                </div>
-              </ScrollReveal>
-            ))}
+          {/* Project screens */}
+          <div className="flex flex-col gap-[20px]">
+            {screens ? (
+              screens.map((src, i) => (
+                <ScrollReveal key={i} delay={i * 0.06}>
+                  {i > 0 && (
+                    <div className="mb-[20px] border-t" style={{ borderColor: "rgba(30, 42, 30, 0.2)" }} />
+                  )}
+                  <img
+                    src={src}
+                    alt={`${detail.title} screen ${i + 1}`}
+                    className="w-full block transition-[filter] duration-[250ms] ease-in-out hover:brightness-[1.04]"
+                    style={{ border: "1px solid #2A3545" }}
+                  />
+                </ScrollReveal>
+              ))
+            ) : (
+              placeholderScreens.map((i) => (
+                <ScrollReveal key={i} delay={i * 0.08}>
+                  <div className="aspect-[16/10] border border-border flex items-center justify-center" style={{ backgroundColor: projectMeta?.coverBg || "hsl(var(--muted))" }}>
+                    <span className="font-sub text-[12px] uppercase tracking-[0.15em] text-foreground/20">
+                      Screen {i} — Coming Soon
+                    </span>
+                  </div>
+                </ScrollReveal>
+              ))
+            )}
           </div>
         </div>
       </main>
