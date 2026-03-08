@@ -25,13 +25,12 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Desktop Layout - 2 columns: 65% content + 28% image */}
-          <div className="hidden md:grid md:grid-cols-[1fr_28%] gap-10 items-center w-full">
-            {/* Column 1: Intro + Cards */}
-            <motion.div className="flex flex-col gap-8" variants={fadeUp}>
-              {/* Intro Text */}
+          {/* Desktop Layout */}
+          <div className="hidden md:grid md:grid-cols-[1fr_auto] gap-16 items-center w-full">
+            {/* Left Column */}
+            <motion.div className="flex flex-col gap-10" variants={fadeUp}>
               <div>
-                <h1 className="text-4xl md:text-[3.5rem] lg:text-[4.2rem] font-heading font-semibold text-foreground leading-[1.08] mb-8">
+                <h1 className="text-4xl md:text-[3.5rem] lg:text-[4.2rem] font-heading font-semibold text-foreground leading-[1.08] mb-6">
                   Building products at the intersection of AI, data, and human behavior.
                 </h1>
                 <p className="text-base md:text-[17px] text-foreground/50 font-body leading-[1.8] max-w-2xl">
@@ -42,110 +41,62 @@ const Hero = () => {
                 </p>
               </div>
 
-              {/* Education + Resume Cards side by side */}
-              <div className="grid grid-cols-2 gap-5">
-                {/* Education Box */}
-                <div className="border border-border rounded-[16px] bg-card/40 backdrop-blur-sm p-6 flex flex-col justify-center min-h-[160px]">
-                  <p className="font-sub uppercase text-[10px] tracking-[0.18em] text-foreground/25 mb-3">
-                    Education
-                  </p>
-                  <p className="text-sm font-body text-foreground/80 leading-relaxed">
-                    B.E. Mechanical Engineering,
-                    <br />
-                    Minor in Computational Economics
-                  </p>
-                  <p className="text-xs font-body text-muted-foreground mt-2">
-                    BITS Pilani • Expected May 2026
-                  </p>
-                </div>
-
-                {/* Resume Box */}
-                <div className="border border-border rounded-[16px] bg-card/40 backdrop-blur-sm p-6 flex flex-col min-h-[160px]">
-                  <p className="font-sub uppercase text-[10px] tracking-[0.18em] text-foreground/25 mb-3">
-                    Professional Resume
-                  </p>
-                  <p className="text-xs text-muted-foreground font-body mb-5">
-                    CV covering product strategy, AI building, and execution track record.
-                  </p>
-                  <a
-                    href="/resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-2.5 rounded-[8px] bg-foreground text-background font-sub uppercase text-[11px] tracking-[0.12em] font-medium hover:opacity-90 transition-opacity duration-200 mt-auto"
-                  >
-                    <Download size={14} />
-                    Download PDF
-                  </a>
-                </div>
+              {/* Action Buttons */}
+              <div className="flex items-center gap-4">
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 px-6 py-3 border border-border rounded-[8px] font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200"
+                >
+                  <Download size={15} />
+                  Download Resume
+                </a>
+                <a
+                  href="mailto:ayush@example.com"
+                  className="flex items-center gap-2.5 px-6 py-3 border border-border rounded-[8px] font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200"
+                >
+                  <Mail size={15} />
+                  Email
+                </a>
+                <a
+                  href="https://linkedin.com/in/ayushraj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 px-6 py-3 border border-border rounded-[8px] font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200"
+                >
+                  <Linkedin size={15} />
+                  LinkedIn
+                </a>
               </div>
             </motion.div>
 
-            {/* Column 2: Image Card */}
-            <motion.div className="flex items-center" variants={fadeUp}>
-              <div className="border border-border rounded-[16px] overflow-hidden bg-card/40 backdrop-blur-sm w-full flex flex-col">
-                <div className="overflow-hidden" style={{ height: '75%', minHeight: '380px' }}>
-                  <img
-                    src={ayushPhoto}
-                    alt="Ayush Raj"
-                    className="w-full h-full object-cover object-[40%_top] hover:scale-105 transition-transform duration-500"
-                    loading="eager"
-                  />
-                </div>
-                <div className="flex flex-col items-center py-5 px-4 gap-3">
-                  <h2 className="text-xl font-heading font-semibold text-foreground">
-                    Ayush Raj
-                  </h2>
-                  <p className="text-sm text-primary font-body">
-                    BITS Pilani '26
-                  </p>
-                  <div className="flex items-center justify-center gap-3 mt-1">
-                    <a
-                      href="https://linkedin.com/in/ayushraj"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
-                      aria-label="LinkedIn"
-                    >
-                      <Linkedin size={18} />
-                    </a>
-                    <a
-                      href="mailto:ayush@example.com"
-                      className="p-2.5 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
-                      aria-label="Email"
-                    >
-                      <Mail size={18} />
-                    </a>
-                  </div>
-                </div>
+            {/* Right Column - Photo */}
+            <motion.div variants={fadeUp}>
+              <div className="rounded-[16px] overflow-hidden w-[340px]">
+                <img
+                  src={ayushPhoto}
+                  alt="Ayush Raj"
+                  className="w-full h-[480px] object-cover object-[40%_20%]"
+                  loading="eager"
+                />
               </div>
             </motion.div>
           </div>
 
           {/* Mobile Layout */}
-          <div className="flex flex-col gap-6 md:hidden">
-            {/* Profile Card */}
-            <motion.div variants={fadeUp}>
-              <div className="border border-border rounded-[16px] overflow-hidden bg-card/40 backdrop-blur-sm max-w-[280px] mx-auto">
-                <div className="overflow-hidden h-[240px]">
-                  <img
-                    src={ayushPhoto}
-                    alt="Ayush Raj"
-                    className="w-full h-full object-cover object-[40%_top] hover:scale-105 transition-transform duration-500"
-                    loading="eager"
-                  />
-                </div>
-                <div className="flex flex-col items-center p-4 gap-2">
-                  <h2 className="text-lg font-heading font-semibold text-foreground">Ayush Raj</h2>
-                  <p className="text-sm text-primary font-body">BITS Pilani '26</p>
-                  <div className="flex items-center justify-center gap-2 mt-1">
-                    <a href="https://linkedin.com/in/ayushraj" target="_blank" rel="noopener noreferrer" className="p-2 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200" aria-label="LinkedIn"><Linkedin size={16} /></a>
-                    <a href="mailto:ayush@example.com" className="p-2 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200" aria-label="Email"><Mail size={16} /></a>
-                  </div>
-                </div>
+          <div className="flex flex-col gap-8 md:hidden">
+            <motion.div variants={fadeUp} className="flex justify-center">
+              <div className="rounded-[16px] overflow-hidden w-[260px]">
+                <img
+                  src={ayushPhoto}
+                  alt="Ayush Raj"
+                  className="w-full h-[340px] object-cover object-[40%_20%]"
+                  loading="eager"
+                />
               </div>
             </motion.div>
 
-            {/* Intro */}
             <motion.div variants={fadeUp}>
               <h1 className="text-3xl font-heading font-semibold text-foreground leading-[1.08] mb-5">
                 Building products at the intersection of AI, data, and human behavior.
@@ -157,18 +108,19 @@ const Hero = () => {
               </p>
             </motion.div>
 
-            {/* Education + Resume */}
-            <motion.div className="flex flex-col gap-4" variants={fadeUp}>
-              <div className="border border-border rounded-[16px] bg-card/40 backdrop-blur-sm p-5">
-                <p className="font-sub uppercase text-[10px] tracking-[0.18em] text-foreground/25 mb-2">Education</p>
-                <p className="text-sm font-body text-foreground/80 leading-relaxed">B.E. Mechanical Engineering,<br />Minor in Computational Economics</p>
-                <p className="text-xs font-body text-muted-foreground mt-1.5">BITS Pilani • Expected May 2026</p>
-              </div>
-              <div className="border border-border rounded-[16px] bg-card/40 backdrop-blur-sm p-5">
-                <p className="font-sub uppercase text-[10px] tracking-[0.18em] text-foreground/25 mb-2">Professional Resume</p>
-                <p className="text-xs text-muted-foreground font-body mb-4">CV covering product strategy, AI building, and execution track record.</p>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-[8px] bg-foreground text-background font-sub uppercase text-[11px] tracking-[0.12em] font-medium hover:opacity-90 transition-opacity duration-200"><Download size={14} />Download PDF</a>
-              </div>
+            <motion.div className="flex flex-wrap gap-3" variants={fadeUp}>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-[8px] font-sub uppercase text-[10px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200">
+                <Download size={14} />
+                Resume
+              </a>
+              <a href="mailto:ayush@example.com" className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-[8px] font-sub uppercase text-[10px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200">
+                <Mail size={14} />
+                Email
+              </a>
+              <a href="https://linkedin.com/in/ayushraj" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-[8px] font-sub uppercase text-[10px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200">
+                <Linkedin size={14} />
+                LinkedIn
+              </a>
             </motion.div>
           </div>
         </motion.div>
