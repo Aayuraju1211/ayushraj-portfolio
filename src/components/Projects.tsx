@@ -27,7 +27,7 @@ export const projects: Project[] = [
     slug: "ugf-website",
     title: "UGF Website",
     tags: ["Figma Prototype", "Work Experience"],
-    coverBg: "#F0EDE6",
+    coverBg: "#1A2535",
     coverImage: ugFullLogo,
     logoMaxWidth: "50%",
     lightCard: true,
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     slug: "multi-asset-fund",
     title: "Multi-Asset Fund",
     tags: ["Figma Prototype", "Work Experience"],
-    coverBg: "#F0EDE6",
+    coverBg: "#1A2535",
     coverImage: ugFullLogo,
     logoMaxWidth: "50%",
     label: "MULTI-ASSET FUND",
@@ -102,8 +102,8 @@ const ProjectCover = ({ project }: { project: Project }) => {
   let lighterCenterHover: string;
 
   if (isLight) {
-    lighterCenter = "#F7F5F1";
-    lighterCenterHover = "#F7F5F1";
+    lighterCenter = "#243040";
+    lighterCenterHover = "#2A3648";
   } else {
     const r = parseInt(hex.slice(1, 3), 16);
     const g = parseInt(hex.slice(3, 5), 16);
@@ -112,14 +112,14 @@ const ProjectCover = ({ project }: { project: Project }) => {
     lighterCenterHover = `rgba(${Math.min(255, r + 64)}, ${Math.min(255, g + 64)}, ${Math.min(255, b + 64)}, 0.6)`;
   }
 
-  const edgeColor = isLight ? "#E8E4DC" : "transparent";
+  const edgeColor = isLight ? "#1A2535" : "transparent";
 
   return (
     <div
       className={`aspect-[3/2] relative overflow-hidden flex items-center justify-center group/cover${isLight ? " border-b" : ""}`}
       style={{
         backgroundColor: hex,
-        ...(isLight ? { borderColor: "#D9D5CE", borderWidth: "1px", borderStyle: "solid", borderBottom: "none" } : {}),
+        ...(isLight ? { borderColor: "#2A3545", borderWidth: "1px", borderStyle: "solid", borderBottom: "none" } : {}),
       }}
     >
       {/* Noise texture overlay */}
