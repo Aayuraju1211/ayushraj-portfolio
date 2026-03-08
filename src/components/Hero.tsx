@@ -72,8 +72,8 @@ const Hero = () => {
             </motion.div>
 
             {/* Right Column - Photo */}
-            <motion.div className="flex items-center justify-center pt-24" variants={fadeUp}>
-              <div className="rounded-[16px] overflow-hidden w-[315px] min-h-[450px]">
+            <motion.div className="flex items-center justify-center pt-[100px]" variants={fadeUp}>
+              <div className="rounded-[16px] overflow-hidden w-[315px] h-[400px]">
                 <img
                   src={ayushPhoto}
                   alt="Ayush Raj"
