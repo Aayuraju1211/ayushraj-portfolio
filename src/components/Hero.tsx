@@ -30,7 +30,7 @@ const Hero = () => {
             {/* Left Column */}
             <motion.div className="flex flex-col gap-10" variants={fadeUp}>
               <div>
-                <h1 className="text-4xl md:text-[3.5rem] lg:text-[4.2rem] font-heading font-semibold text-foreground leading-[1.08] mb-6">
+                <h1 className="text-4xl md:text-[2.8rem] lg:text-[3.4rem] font-heading font-semibold text-foreground leading-[1.08] mb-6">
                   Building products at the intersection of AI, data, and human behavior.
                 </h1>
                 <p className="text-base md:text-[17px] text-foreground/50 font-body leading-[1.8] max-w-2xl">
