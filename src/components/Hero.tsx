@@ -73,11 +73,11 @@ const Hero = () => {
 
             {/* Right Column - Photo */}
             <motion.div className="flex items-center justify-center pt-24" variants={fadeUp}>
-              <div className="rounded-[16px] overflow-hidden w-[240px]">
+              <div className="rounded-[16px] overflow-hidden w-[275px] min-h-[450px]">
                 <img
                   src={ayushPhoto}
                   alt="Ayush Raj"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-cover"
                   loading="eager"
                 />
               </div>
