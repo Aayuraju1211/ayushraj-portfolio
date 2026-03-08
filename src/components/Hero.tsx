@@ -127,6 +127,7 @@ const Hero = () => {
               </p>
             </div>
           </motion.div>
+        </motion.div>
       </div>
     </section>
   );
