@@ -25,13 +25,13 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Desktop Layout - 2 columns: 65% content + 35% image */}
-          <div className="hidden md:grid md:grid-cols-[65%_35%] gap-6 items-start w-full">
+          {/* Desktop Layout - 2 columns: 65% content + 28% image */}
+          <div className="hidden md:grid md:grid-cols-[1fr_28%] gap-10 items-center w-full">
             {/* Column 1: Intro + Cards */}
-            <motion.div className="flex flex-col gap-6 pr-4" variants={fadeUp}>
+            <motion.div className="flex flex-col gap-8" variants={fadeUp}>
               {/* Intro Text */}
               <div>
-                <h1 className="text-4xl md:text-[3.2rem] lg:text-[3.8rem] font-heading font-semibold text-foreground leading-[1.08] mb-6">
+                <h1 className="text-4xl md:text-[3.5rem] lg:text-[4.2rem] font-heading font-semibold text-foreground leading-[1.08] mb-8">
                   Building products at the intersection of AI, data, and human behavior.
                 </h1>
                 <p className="text-base md:text-[17px] text-foreground/50 font-body leading-[1.8] max-w-2xl">
@@ -43,10 +43,10 @@ const Hero = () => {
               </div>
 
               {/* Education + Resume Cards side by side */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-5">
                 {/* Education Box */}
-                <div className="border border-border rounded-[16px] bg-card/40 backdrop-blur-sm p-5">
-                  <p className="font-sub uppercase text-[10px] tracking-[0.18em] text-foreground/25 mb-2">
+                <div className="border border-border rounded-[16px] bg-card/40 backdrop-blur-sm p-6 flex flex-col justify-center min-h-[160px]">
+                  <p className="font-sub uppercase text-[10px] tracking-[0.18em] text-foreground/25 mb-3">
                     Education
                   </p>
                   <p className="text-sm font-body text-foreground/80 leading-relaxed">
@@ -54,17 +54,17 @@ const Hero = () => {
                     <br />
                     Minor in Computational Economics
                   </p>
-                  <p className="text-xs font-body text-muted-foreground mt-1.5">
+                  <p className="text-xs font-body text-muted-foreground mt-2">
                     BITS Pilani • Expected May 2026
                   </p>
                 </div>
 
                 {/* Resume Box */}
-                <div className="border border-border rounded-[16px] bg-card/40 backdrop-blur-sm p-5 flex flex-col">
-                  <p className="font-sub uppercase text-[10px] tracking-[0.18em] text-foreground/25 mb-2">
+                <div className="border border-border rounded-[16px] bg-card/40 backdrop-blur-sm p-6 flex flex-col min-h-[160px]">
+                  <p className="font-sub uppercase text-[10px] tracking-[0.18em] text-foreground/25 mb-3">
                     Professional Resume
                   </p>
-                  <p className="text-xs text-muted-foreground font-body mb-4">
+                  <p className="text-xs text-muted-foreground font-body mb-5">
                     CV covering product strategy, AI building, and execution track record.
                   </p>
                   <a
@@ -81,9 +81,9 @@ const Hero = () => {
             </motion.div>
 
             {/* Column 2: Image Card */}
-            <motion.div className="flex items-stretch" variants={fadeUp}>
+            <motion.div className="flex items-center" variants={fadeUp}>
               <div className="border border-border rounded-[16px] overflow-hidden bg-card/40 backdrop-blur-sm w-full flex flex-col">
-                <div className="overflow-hidden h-[420px]">
+                <div className="overflow-hidden" style={{ height: '75%', minHeight: '380px' }}>
                   <img
                     src={ayushPhoto}
                     alt="Ayush Raj"
@@ -91,29 +91,29 @@ const Hero = () => {
                     loading="eager"
                   />
                 </div>
-                <div className="flex flex-col items-center p-4 gap-2">
-                  <h2 className="text-lg font-heading font-semibold text-foreground">
+                <div className="flex flex-col items-center py-5 px-4 gap-3">
+                  <h2 className="text-xl font-heading font-semibold text-foreground">
                     Ayush Raj
                   </h2>
                   <p className="text-sm text-primary font-body">
                     BITS Pilani '26
                   </p>
-                  <div className="flex items-center justify-center gap-2 mt-1">
+                  <div className="flex items-center justify-center gap-3 mt-1">
                     <a
                       href="https://linkedin.com/in/ayushraj"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
+                      className="p-2.5 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
                       aria-label="LinkedIn"
                     >
-                      <Linkedin size={16} />
+                      <Linkedin size={18} />
                     </a>
                     <a
                       href="mailto:ayush@example.com"
-                      className="p-2 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
+                      className="p-2.5 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
                       aria-label="Email"
                     >
-                      <Mail size={16} />
+                      <Mail size={18} />
                     </a>
                   </div>
                 </div>
