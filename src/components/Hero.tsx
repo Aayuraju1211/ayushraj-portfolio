@@ -26,9 +26,9 @@ const Hero = () => {
           animate="visible"
         >
           {/* Desktop Layout - 2 columns: 65% content + 35% image */}
-          <div className="hidden md:grid md:grid-cols-[65%_35%] gap-6 items-stretch w-full">
+          <div className="hidden md:grid md:grid-cols-[65%_35%] gap-6 items-start w-full">
             {/* Column 1: Intro + Cards */}
-            <motion.div className="flex flex-col justify-center gap-6 pr-4" variants={fadeUp}>
+            <motion.div className="flex flex-col gap-6 pr-4" variants={fadeUp}>
               {/* Intro Text */}
               <div>
                 <h1 className="text-4xl md:text-[3.2rem] lg:text-[3.8rem] font-heading font-semibold text-foreground leading-[1.08] mb-6">
