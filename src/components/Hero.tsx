@@ -28,7 +28,7 @@ const Hero = () => {
           {/* Desktop Layout */}
           <div className="hidden md:grid md:grid-cols-[1fr_auto] gap-16 items-center w-full">
             {/* Left Column */}
-            <motion.div className="flex flex-col gap-10" variants={fadeUp}>
+            <motion.div className="flex flex-col gap-10 pt-16" variants={fadeUp}>
               <div>
                 <h1 className="text-4xl md:text-[2.8rem] lg:text-[3.4rem] font-heading font-semibold text-foreground leading-[1.08] mb-6">
                   Building products at the intersection of AI, data, and human behavior.
