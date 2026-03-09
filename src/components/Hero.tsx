@@ -63,7 +63,7 @@ const Hero = () => {
                   <img
                     src={ayushPhoto}
                     alt="Ayush Raj"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out hover:scale-110"
                     loading="eager"
                   />
                 </div>
