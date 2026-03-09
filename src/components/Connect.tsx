@@ -34,11 +34,8 @@ const Connect = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <ScrollReveal delay={0.1}>
             <div className="border border-border p-8 h-full flex flex-col justify-center">
-              <p className="font-heading text-xl font-medium text-foreground mb-2">
-                Open to Product roles.
-              </p>
-              <p className="text-muted-foreground mb-8">
-                Internships, full-time, and consulting.
+              <p className="text-muted-foreground mb-8 text-sm leading-relaxed">
+                I'm currently exploring <span className="text-[hsl(152,40%,45%)] font-medium">APM</span>, <span className="text-[hsl(152,40%,45%)] font-medium">Founder's Office</span>, and <span className="text-[hsl(152,40%,45%)] font-medium">Product Analyst</span> opportunities. Whether you have a role in mind, want to brainstorm a product idea, or just want to say hi—drop a message below!
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
