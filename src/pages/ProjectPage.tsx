@@ -68,7 +68,7 @@ const projectDetails: ProjectDetail[] = [
     contribution: "Validated 3 core hypotheses via a 38-user survey and 1:1 interviews. Prioritized features using RICE (Mood Tracker: 115.71, Peer Support: 88.2, Sleep Tracking: 72). Designed system architecture, user journey, and north star metric. Built a functional MVP with onboarding, mood logging, and curiosity-gated insights screen.",
     pdfUrl: "/pdfs/prism-mvp.pdf",
     coverImage: prismCover,
-    secondaryCta: { label: "View MVP Prototype", url: "#" },
+    secondaryCta: { label: "View MVP", url: "https://prismmvp.lovable.app/" },
   },
   {
     slug: "spotify-prd",
