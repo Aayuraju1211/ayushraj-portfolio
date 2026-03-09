@@ -53,7 +53,7 @@ const Connect = () => {
                   <Mail size={16} /> Email
                 </a>
                 <a
-                  href="https://linkedin.com/in/ayushraj"
+                  href="https://www.linkedin.com/in/ayush-raj-589080286"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-sub text-sm"
