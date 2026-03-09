@@ -53,22 +53,6 @@ const Hero = () => {
                   <Download size={15} />
                   Download Resume
                 </a>
-                <a
-                  href="mailto:ayush@example.com"
-                  className="flex items-center gap-2.5 px-6 py-3 border border-border rounded-[8px] font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200"
-                >
-                  <Mail size={15} />
-                  Email
-                </a>
-                <a
-                  href="https://linkedin.com/in/ayushraj"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 px-6 py-3 border border-border rounded-[8px] font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200"
-                >
-                  <Linkedin size={15} />
-                  LinkedIn
-                </a>
               </div>
             </motion.div>
 
