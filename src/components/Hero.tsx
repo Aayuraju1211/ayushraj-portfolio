@@ -75,7 +75,7 @@ const Hero = () => {
                   </p>
                   <div className="flex items-center justify-center gap-3 mt-1">
                     <a
-                      href="https://linkedin.com/in/ayushraj"
+                      href="https://www.linkedin.com/in/ayush-raj-589080286"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2.5 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
