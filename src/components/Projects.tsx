@@ -119,7 +119,7 @@ const ProjectCover = ({ project }: { project: Project }) => {
       className={`aspect-[3/2] relative overflow-hidden flex items-center justify-center group/cover${isLight ? " border-b" : ""}`}
       style={{
         backgroundColor: hex,
-        ...(isLight ? { borderColor: "#2A3545", borderWidth: "1px", borderStyle: "solid", borderBottom: "none" } : {}),
+        ...(isLight ? { borderColor: "#1A5C45", borderWidth: "1px", borderStyle: "solid", borderBottom: "none" } : {}),
       }}
     >
       {/* Noise texture overlay */}
