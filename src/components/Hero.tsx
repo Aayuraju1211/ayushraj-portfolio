@@ -121,7 +121,7 @@ const Hero = () => {
             </motion.div>
 
             <motion.div className="flex flex-wrap gap-3" variants={fadeUp}>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-[8px] font-sub uppercase text-[10px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200">
+              <a href="/Ayush_Raj_Resume.pdf" download="Ayush_Raj_Resume.pdf" className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-[8px] font-sub uppercase text-[10px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200">
                 <Download size={14} />
                 Resume
               </a>
