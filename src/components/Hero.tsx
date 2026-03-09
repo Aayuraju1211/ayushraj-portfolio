@@ -125,7 +125,7 @@ const Hero = () => {
                 <Download size={14} />
                 Resume
               </a>
-              <a href="mailto:ayush@example.com" className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-[8px] font-sub uppercase text-[10px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200">
+              <a href="mailto:f20220851@goa.bits-pilani.ac.in" className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-[8px] font-sub uppercase text-[10px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200">
                 <Mail size={14} />
                 Email
               </a>
