@@ -39,9 +39,8 @@ const Connect = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/Ayush_Raj_Resume.pdf"
+                  download="Ayush_Raj_Resume.pdf"
                   className="cta-button inline-flex items-center gap-2"
                 >
                   <Download size={14} /> Download Resume
