@@ -47,7 +47,7 @@ const Connect = () => {
                   <Download size={14} /> Download Resume
                 </a>
                 <a
-                  href="mailto:ayush@example.com"
+                  href="mailto:f20220851@goa.bits-pilani.ac.in"
                   className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-sub text-sm"
                 >
                   <Mail size={16} /> Email
