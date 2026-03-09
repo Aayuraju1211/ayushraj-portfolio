@@ -104,7 +104,7 @@ const projectDetails: ProjectDetail[] = [
     problem: "Retail businesses struggle to identify which customer segments drive revenue and whether discounts actually improve margins or just erode them.",
     contribution: "Cleaned raw e-commerce data in Python. Analyzed purchasing behavior across age, gender, and city. Evaluated discount effectiveness and membership tier impact (Bronze, Silver, Gold). Delivered a Power BI dashboard surfacing $295K in tracked revenue with actionable retention and targeting insights.",
     ctaLabel: "View on GitHub",
-    ctaUrl: "#",
+    ctaUrl: "https://github.com/Aayuraju1211/E-Commerce_Sales_Analytics",
   },
   {
     slug: "ugf-website",
