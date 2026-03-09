@@ -39,21 +39,20 @@ const Connect = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/Ayush_Raj_Resume.pdf"
+                  download="Ayush_Raj_Resume.pdf"
                   className="cta-button inline-flex items-center gap-2"
                 >
                   <Download size={14} /> Download Resume
                 </a>
                 <a
-                  href="mailto:ayush@example.com"
+                  href="mailto:f20220851@goa.bits-pilani.ac.in"
                   className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-sub text-sm"
                 >
                   <Mail size={16} /> Email
                 </a>
                 <a
-                  href="https://linkedin.com/in/ayushraj"
+                  href="https://www.linkedin.com/in/ayush-raj-589080286"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-sub text-sm"
@@ -73,9 +72,10 @@ const Connect = () => {
                 <input
                   type="text"
                   required
+                  placeholder="Your email or phone number"
                   value={form.contact}
                   onChange={(e) => setForm({ ...form, contact: e.target.value })}
-                  className="w-full bg-transparent border border-border px-4 py-3 text-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors"
+                  className="w-full bg-transparent border border-border px-4 py-3 text-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-muted-foreground/50"
                 />
               </div>
               <div>
@@ -85,9 +85,10 @@ const Connect = () => {
                 <textarea
                   required
                   rows={5}
+                  placeholder="What's on your mind?"
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-transparent border border-border px-4 py-3 text-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors resize-none"
+                  className="w-full bg-transparent border border-border px-4 py-3 text-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors resize-none placeholder:text-muted-foreground/50"
                 />
               </div>
               <button
