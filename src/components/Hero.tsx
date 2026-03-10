@@ -47,7 +47,7 @@ const Hero = () => {
                 <a
                   href="/Ayush_Raj_Resume.pdf"
                   download="Ayush_Raj_Resume.pdf"
-                  className="flex items-center gap-2.5 px-6 py-3 border border-border rounded-[8px] font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200"
+                  className="flex items-center gap-2.5 px-6 py-3 border-2 border-primary bg-transparent rounded-[8px] font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200"
                 >
                   <Download size={15} />
                   Download Resume
@@ -123,7 +123,7 @@ const Hero = () => {
             </motion.div>
 
             <motion.div className="flex flex-wrap gap-3" variants={fadeUp}>
-              <a href="/Ayush_Raj_Resume.pdf" download="Ayush_Raj_Resume.pdf" className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-[8px] font-sub uppercase text-[10px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200">
+              <a href="/Ayush_Raj_Resume.pdf" download="Ayush_Raj_Resume.pdf" className="flex items-center gap-2 px-5 py-2.5 border-2 border-primary bg-transparent rounded-[8px] font-sub uppercase text-[10px] tracking-[0.14em] font-medium text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200">
                 <Download size={14} />
                 Resume
               </a>
