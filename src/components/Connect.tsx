@@ -25,7 +25,7 @@ const Connect = () => {
     <section id="connect" className="py-[120px]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <ScrollReveal>
-          <p className="section-label">04 Connect</p>
+          <p className="section-label">03 Connect</p>
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-16">
             Let's talk
           </h2>
