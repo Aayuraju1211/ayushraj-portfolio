@@ -10,19 +10,17 @@ const navItems = [
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [dark, setDark] = useState(() => localStorage.getItem("theme") === "dark");
   const location = useLocation();
+
+  useEffect(() => {
+    document.documentElement.classList.add("dark");
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark);
-    localStorage.setItem("theme", dark ? "dark" : "light");
-  }, [dark]);
 
   const handleNavClick = (href: string) => {
     if (location.pathname !== "/") {
