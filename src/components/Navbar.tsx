@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Moon, Sun } from "lucide-react";
+
 
 const navItems = [
   { label: "Experience", href: "/#experience" },
