@@ -111,12 +111,14 @@ const Hero = () => {
 
             <motion.div variants={fadeUp}>
               <h1 className="text-3xl font-heading font-semibold text-foreground leading-[1.08] mb-5">
-                Building products at the intersection of AI, data, and human behavior.
+                Systems thinker. Product builder.
               </h1>
               <p className="text-base text-foreground/50 font-body leading-[1.8]">
-                Final-year ME student at BITS Pilani. Previously at{" "}
+                Final-year student at BITS Pilani. Spent 6 months at{" "}
                 <span className="text-primary">Unity Growth Fund</span>{" "}
-                and <span className="text-primary">Grasim Industries</span>.
+                owning product features end-to-end, from user research and wireframing to high-fidelity prototypes. Previously at{" "}
+                <span className="text-primary">Grasim Industries</span>.
+                {" "}I think in systems, build with data, and care about why users do what they do.
               </p>
             </motion.div>
 
