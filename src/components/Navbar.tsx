@@ -3,9 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 
 
 const navItems = [
+  { label: "About", href: "/#hero" },
   { label: "Experience", href: "/#experience" },
   { label: "Projects", href: "/#projects" },
-  { label: "Skills", href: "/#skills" },
 ];
 
 const Navbar = () => {
@@ -44,7 +44,7 @@ const Navbar = () => {
           onClick={() => handleNavClick("/#")}
           className="font-heading text-xl font-bold tracking-tight text-foreground hover:text-foreground/80 transition-colors"
         >
-          AR
+          Ayush's Portfolio
         </button>
         <div className="flex items-center gap-8">
         <div className="hidden md:flex items-center gap-8">
