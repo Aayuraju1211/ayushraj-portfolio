@@ -3,9 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 
 
 const navItems = [
+  { label: "About", href: "/#hero" },
   { label: "Experience", href: "/#experience" },
   { label: "Projects", href: "/#projects" },
-  { label: "Skills", href: "/#skills" },
 ];
 
 const Navbar = () => {
