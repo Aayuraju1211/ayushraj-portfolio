@@ -65,13 +65,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        <button
-          onClick={() => setDark(!dark)}
-          className="p-2 text-foreground/60 hover:text-foreground transition-colors"
-          aria-label="Toggle theme"
-        >
-          {dark ? <Sun size={16} /> : <Moon size={16} />}
-        </button>
         </div>
       </div>
     </nav>
