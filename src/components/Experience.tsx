@@ -38,25 +38,25 @@ const Experience = () => {
           {/* Timeline line */}
           <div className="absolute left-0 md:left-[200px] top-0 bottom-0 w-px bg-border hidden md:block" />
 
-          <div className="space-y-16">
+          <div className="space-y-12 md:space-y-16">
             {experiences.map((exp, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 md:gap-12">
+                <div className={`grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 md:gap-12 ${i < experiences.length - 1 ? 'mb-12 md:mb-16' : ''}`}>
                   <div className="md:text-right">
-                    <p className="font-sub text-[12px] uppercase tracking-[0.1em] text-muted-foreground">
+                    <p className="font-sub text-[16px] uppercase tracking-[0.1em] text-muted-foreground font-medium">
                       {exp.period}
                     </p>
                   </div>
                   <div className="md:pl-12 relative">
                     {/* Timeline dot */}
                     <div className="absolute left-0 top-2 w-2 h-2 bg-primary rounded-full -translate-x-[calc(50%+0.5px)] hidden md:block" />
-                    <h3 className="font-heading text-xl font-semibold text-foreground">
+                    <h3 className="font-heading text-[20px] font-bold text-foreground">
                       {exp.company}
                     </h3>
-                    <p className="font-sub text-sm text-primary mb-4">{exp.role}</p>
-                    <ul className="space-y-3">
+                    <p className="font-sub text-[16px] text-primary mb-4">{exp.role}</p>
+                    <ul className="mt-4">
                       {exp.points.map((point, j) => (
-                        <li key={j} className="text-foreground/80 text-[15px] leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[10px] before:w-1.5 before:h-px before:bg-primary">
+                        <li key={j} className="text-foreground/80 text-[15px] leading-[1.7] mb-3 last:mb-0 pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[12px] before:w-1.5 before:h-px before:bg-primary">
                           {point}
                         </li>
                       ))}
