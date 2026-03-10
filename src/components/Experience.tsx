@@ -36,14 +36,14 @@ const Experience = () => {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-0 md:left-[200px] top-0 bottom-0 w-px bg-border hidden md:block" />
+          <div className="absolute left-0 md:left-[240px] top-0 bottom-0 w-px bg-border hidden md:block" />
 
           <div className="space-y-12 md:space-y-16">
             {experiences.map((exp, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className={`grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 md:gap-12 ${i < experiences.length - 1 ? 'mb-12 md:mb-16' : ''}`}>
+                <div className={`grid grid-cols-1 md:grid-cols-[240px_1fr] gap-4 md:gap-12 ${i < experiences.length - 1 ? 'mb-12 md:mb-16' : ''}`}>
                   <div className="md:text-right">
-                    <p className="font-sub text-[16px] uppercase tracking-[0.1em] text-muted-foreground font-medium">
+                    <p className="font-sub text-[16px] uppercase tracking-[0.1em] text-muted-foreground font-medium whitespace-nowrap">
                       {exp.period}
                     </p>
                   </div>
