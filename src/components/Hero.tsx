@@ -70,7 +70,7 @@ const Hero = () => {
                   <h2 className="text-lg font-heading font-semibold text-foreground">
                     Ayush Raj
                   </h2>
-                  <p className="text-sm text-primary font-body">
+                  <p className="text-sm text-[#1F935D] font-body">
                     BITS Pilani '26
                   </p>
                   <div className="flex items-center justify-center gap-3 mt-1">
