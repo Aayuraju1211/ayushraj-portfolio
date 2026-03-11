@@ -53,7 +53,7 @@ const Experience = () => {
                     <h3 className="font-heading text-[20px] font-bold text-foreground">
                       {exp.company}
                     </h3>
-                    <p className="font-sub text-[16px] text-primary mb-4">{exp.role}</p>
+                    <p className="font-sub text-[16px] text-[#1F935D] mb-4">{exp.role}</p>
                     <ul className="mt-4">
                       {exp.points.map((point, j) => (
                         <li key={j} className="text-foreground/80 text-[15px] leading-[1.7] mb-3 last:mb-0 pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[12px] before:w-1.5 before:h-px before:bg-primary">
