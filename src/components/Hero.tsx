@@ -35,9 +35,9 @@ const Hero = () => {
                 </h1>
                 <p className="text-base md:text-[17px] text-foreground/50 font-body leading-[1.8] max-w-2xl">
                   Final-year student at BITS Pilani. Spent 6 months at{" "}
-                  <span className="text-primary">Unity Growth Fund</span>{" "}
+                  <span className="text-[#1F935D]">Unity Growth Fund</span>{" "}
                   owning product features end-to-end, from user research and wireframing to high-fidelity prototypes. Previously at{" "}
-                  <span className="text-primary">Grasim Industries</span>.
+                  <span className="text-[#1F935D]">Grasim Industries</span>.
                   {" "}I think in systems, build with data, and care about why users do what they do.
                 </p>
               </div>
@@ -70,7 +70,7 @@ const Hero = () => {
                   <h2 className="text-lg font-heading font-semibold text-foreground">
                     Ayush Raj
                   </h2>
-                  <p className="text-sm text-primary font-body">
+                  <p className="text-sm text-[#1F935D] font-body">
                     BITS Pilani '26
                   </p>
                   <div className="flex items-center justify-center gap-3 mt-1">
@@ -115,9 +115,9 @@ const Hero = () => {
               </h1>
               <p className="text-base text-foreground/50 font-body leading-[1.8]">
                 Final-year student at BITS Pilani. Spent 6 months at{" "}
-                <span className="text-primary">Unity Growth Fund</span>{" "}
+                <span className="text-[#1F935D]">Unity Growth Fund</span>{" "}
                 owning product features end-to-end, from user research and wireframing to high-fidelity prototypes. Previously at{" "}
-                <span className="text-primary">Grasim Industries</span>.
+                <span className="text-[#1F935D]">Grasim Industries</span>.
                 {" "}I think in systems, build with data, and care about why users do what they do.
               </p>
             </motion.div>
