@@ -59,7 +59,7 @@ const Navbar = () => {
           ))}
           <button
             onClick={() => handleNavClick("/#connect")}
-            className="font-sub uppercase text-[12px] tracking-[0.1em] px-5 py-2 border-2 border-primary bg-transparent text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200 rounded-[8px]"
+            className="font-sub uppercase text-[12px] tracking-[0.1em] px-5 py-2 border-2 border-[#1b6a50] bg-[#1b6a50] text-white hover:bg-[#165740] hover:border-[#165740] transition-all duration-200 rounded-[8px]"
           >
             Connect
           </button>
