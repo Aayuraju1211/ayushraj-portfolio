@@ -14,11 +14,11 @@ const experiences = [
   },
   {
     company: "Grasim Industries",
-    role: "Research Intern",
+    role: "Summer Intern - Business Analysis",
     period: "May 2024 — July 2024",
     points: [
-      "Conducted quantitative analysis on structural data to identify vibration vulnerabilities.",
-      "Compiled technical reports supporting operational safety assessments.",
+      "Processed and cleaned offline datasets containing daily operational logs, fixing missing or incorrect entries to ensure the data was accurate before it was handed off to the main reporting team.",
+      "Utilized Matplotlib and Seaborn to generate static visual reports on 6 core metrics, assisting the dashboard team in building out their weekly trend charts.",
     ],
   },
 ];
