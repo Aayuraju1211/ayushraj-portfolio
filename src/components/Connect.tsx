@@ -35,7 +35,7 @@ const Connect = () => {
           <ScrollReveal delay={0.1}>
             <div className="border border-border p-8 h-full flex flex-col justify-center px-[32px] py-[24px]">
               <p className="text-muted-foreground mb-8 text-sm leading-relaxed">
-                I'm currently exploring <span className="text-[#1F935D] font-medium">APM</span>, <span className="text-[#1F935D] font-medium">Founder's Office</span>, and <span className="text-[#1F935D] font-medium">Product Analyst</span> opportunities. Whether you have a role in mind, want to brainstorm a product idea, or just want to say hi—drop a message below!
+                I'm currently exploring <span className="text-[#1F935D] font-medium">Associate ProductManager </span>, <span className="text-[#1F935D] font-medium">Founder's Office</span>, and <span className="text-[#1F935D] font-medium">Product Analyst</span> opportunities. Whether you have a role in mind, want to brainstorm a product idea, or just want to say hi—drop a message below!
               </p>
               <div className="flex flex-wrap gap-[32px]">
                 <a
