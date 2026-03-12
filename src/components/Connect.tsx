@@ -27,7 +27,7 @@ const Connect = () => {
         <ScrollReveal>
           <p className="section-label">03 Connect</p>
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-16">
-            Let's talk
+            Let's Connect 
           </h2>
         </ScrollReveal>
 
