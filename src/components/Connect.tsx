@@ -41,7 +41,7 @@ const Connect = () => {
                 <a
                   href="/Ayush_Raj_Resume.pdf"
                   download="Ayush_Raj_Resume.pdf"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-[#1b6a50] bg-[#1b6a50] rounded-[8px] font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-white hover:bg-[#165740] hover:border-[#165740] transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-[#1b6a50] bg-transparent rounded-[8px] font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-white hover:bg-[#1b6a50] transition-all duration-200"
                 >
                   <Download size={14} /> Download Resume
                 </a>
