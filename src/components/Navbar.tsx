@@ -3,10 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 
 
 const navItems = [
-  { label: "About", href: "/#hero" },
-  { label: "Experience", href: "/#experience" },
-  { label: "Projects", href: "/#projects" },
-];
+{ label: "About", href: "/#hero" },
+{ label: "Experience", href: "/#experience" },
+{ label: "Projects", href: "/#projects" }];
+
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -34,41 +34,41 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "backdrop-blur-[12px] bg-background/70"
-          : "bg-transparent"
-      }`}
-    >
+      scrolled ?
+      "backdrop-blur-[12px] bg-background/70" :
+      "bg-transparent"}`
+      }>
+      
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16">
         <button
           onClick={() => handleNavClick("/#")}
-          className="font-heading text-xl font-bold tracking-tight text-foreground hover:text-foreground/80 transition-colors"
-        >
+          className="font-heading text-xl font-bold tracking-tight text-foreground hover:text-foreground/80 transition-colors">
+          
           Ayush's Portfolio
         </button>
         <div className="flex items-center gap-8">
         <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
+          {navItems.map((item) =>
             <button
               key={item.label}
               onClick={() => handleNavClick(item.href)}
-              className="nav-link text-foreground hover:text-foreground/80 pb-1"
-            >
+              className="nav-link text-foreground hover:text-foreground/80 pb-1">
+              
               {item.label}
             </button>
-          ))}
+            )}
           <button
-            onClick={() => handleNavClick("/#connect")}
-            className="font-sub uppercase text-[12px] tracking-[0.1em] px-5 py-2 border-2 border-[#1b6a50] bg-transparent text-white hover:bg-[#1b6a50] transition-all duration-200"
-          >
-            Connect
+              onClick={() => handleNavClick("/#connect")}
+              className="font-sub uppercase text-[12px] tracking-[0.1em] px-5 py-2 border-2 border-[#1b6a50] bg-transparent text-white hover:bg-[#1b6a50] transition-all duration-200">
+              
+            Contact
           </button>
         </div>
 
         </div>
       </div>
-    </nav>
-  );
+    </nav>);
+
 };
 
 export default Navbar;
