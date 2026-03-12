@@ -202,10 +202,10 @@ const Projects = () => {
               <button
                 key={f}
                 onClick={() => setActiveFilter(f)}
-                className={`font-sub text-[12px] uppercase tracking-[0.1em] px-4 py-2 border transition-all duration-200 ${
+                className={`font-sub text-[12px] uppercase tracking-[0.1em] px-4 py-2 border-2 transition-all duration-200 ${
                   activeFilter === f
                     ? "border-[#1b6a50] bg-[#1b6a50] text-white"
-                    : "border-border text-muted-foreground bg-[#1b6a50] hover:bg-[#165740]"
+                    : "border-[#1b6a50] bg-transparent text-muted-foreground hover:bg-[#1b6a50]/20"
                 }`}
               >
                 {f}
