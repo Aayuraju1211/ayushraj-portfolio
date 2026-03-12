@@ -33,7 +33,7 @@ const Connect = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <ScrollReveal delay={0.1}>
-            <div className="border border-border p-8 h-full flex flex-col justify-center">
+            <div className="border border-border p-8 h-full flex flex-col justify-center px-[32px] py-[24px]">
               <p className="text-muted-foreground mb-8 text-sm leading-relaxed">
                 I'm currently exploring <span className="text-[#1F935D] font-medium">APM</span>, <span className="text-[#1F935D] font-medium">Founder's Office</span>, and <span className="text-[#1F935D] font-medium">Product Analyst</span> opportunities. Whether you have a role in mind, want to brainstorm a product idea, or just want to say hi—drop a message below!
               </p>
@@ -41,22 +41,22 @@ const Connect = () => {
                 <a
                   href="/Ayush_Raj_Resume.pdf"
                   download="Ayush_Raj_Resume.pdf"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-[#1b6a50] bg-transparent font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-white hover:bg-[#1b6a50] transition-all duration-200"
-                >
+                  className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-[#1b6a50] bg-transparent font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-white hover:bg-[#1b6a50] transition-all duration-200">
+                  
                   <Download size={14} /> Download Resume
                 </a>
                 <a
                   href="mailto:f20220851@goa.bits-pilani.ac.in"
-                  className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-sub text-sm"
-                >
+                  className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-sub text-sm">
+                  
                   <Mail size={16} /> Email
                 </a>
                 <a
                   href="https://www.linkedin.com/in/ayush-raj-589080286"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-sub text-sm"
-                >
+                  className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-sub text-sm">
+                  
                   <Linkedin size={16} /> LinkedIn
                 </a>
               </div>
@@ -75,8 +75,8 @@ const Connect = () => {
                   placeholder="Your email or phone number"
                   value={form.contact}
                   onChange={(e) => setForm({ ...form, contact: e.target.value })}
-                  className="w-full bg-transparent border border-border px-4 py-3 text-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-muted-foreground/50"
-                />
+                  className="w-full bg-transparent border border-border px-4 py-3 text-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-muted-foreground/50" />
+                
               </div>
               <div>
                 <label className="font-sub text-[12px] uppercase tracking-[0.1em] text-muted-foreground block mb-2">
@@ -88,14 +88,14 @@ const Connect = () => {
                   placeholder="What's on your mind?"
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-transparent border border-border px-4 py-3 text-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors resize-none placeholder:text-muted-foreground/50"
-                />
+                  className="w-full bg-transparent border border-border px-4 py-3 text-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors resize-none placeholder:text-muted-foreground/50" />
+                
               </div>
               <button
                 type="submit"
                 disabled={sending}
-                className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-[#1b6a50] bg-transparent font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-white hover:bg-[#1b6a50] transition-all duration-200 disabled:opacity-50"
-              >
+                className="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-[#1b6a50] bg-transparent font-sub uppercase text-[11px] tracking-[0.14em] font-medium text-white hover:bg-[#1b6a50] transition-all duration-200 disabled:opacity-50">
+                
                 <Send size={14} />
                 {sending ? "Sending..." : "Submit"}
               </button>
@@ -103,8 +103,8 @@ const Connect = () => {
           </ScrollReveal>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default Connect;
