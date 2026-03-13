@@ -97,7 +97,7 @@ const Hero = () => {
           </div>
 
           {/* Mobile Layout */}
-          <div className="flex flex-col gap-8 md:hidden">
+          <div className="flex flex-col gap-8 md:hidden pt-16">
             <motion.div variants={fadeUp} className="flex justify-center">
               <div className="rounded-[16px] overflow-hidden w-[260px]">
                 <img
