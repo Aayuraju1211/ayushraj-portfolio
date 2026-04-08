@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ExternalLink, FileText } from "lucide-react";
+import { ArrowLeft, ExternalLink, FileText, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollReveal from "../components/ScrollReveal";
 import Navbar from "../components/Navbar";
@@ -31,7 +31,6 @@ import mafScreen9 from "@/assets/maf-screen-9.png";
 import yatraCover from "@/assets/yatra-cover.jpg";
 import spotifyCover from "@/assets/spotify-cover.jpg";
 import prismCover from "@/assets/prism-cover.jpg";
-import yourdostCover from "@/assets/yourdost-cover.jpg";
 
 const projectScreens: Record<string, string[]> = {
   "ugf-website": [ugfScreen1, ugfScreen2, ugfScreen3, ugfScreen4, ugfScreen5],
@@ -44,6 +43,11 @@ interface CTA {
   url: string;
 }
 
+interface SummaryPart {
+  heading: string;
+  body: string;
+}
+
 interface ProjectDetail {
   slug: string;
   title: string;
@@ -53,10 +57,11 @@ interface ProjectDetail {
   ctaLabel?: string;
   ctaUrl?: string;
   ctas?: CTA[];
-  // PDF-based project fields
   pdfUrl?: string;
   coverImage?: string;
   secondaryCta?: CTA;
+  downloadFile?: string;
+  summaryParts?: SummaryPart[];
 }
 
 const projectDetails: ProjectDetail[] = [
@@ -89,13 +94,34 @@ const projectDetails: ProjectDetail[] = [
     coverImage: yatraCover,
   },
   {
-    slug: "yourdost-churn",
-    title: "Reducing Churn & Measuring ROI for yourDOST",
-    tags: ["Case Study"],
-    problem: "The business needed a structured approach to retain users on the platform while accurately proving the return on investment (ROI).",
-    contribution: "Developed a strategic framework that identified churn triggers and proposed targeted feature interventions to improve user loyalty. Built an ROI Quantification Model using the WHO-5 framework to produce a board-ready B2B wellness impact dashboard.",
-    pdfUrl: "/pdfs/yourdost-churn.pdf",
-    coverImage: yourdostCover,
+    slug: "retailrocket-analysis",
+    title: "RetailRocket E-Commerce Analysis",
+    tags: ["Data Analysis", "MySQL", "Power BI"],
+    problem: "Retail businesses generate millions of behavioral events daily but lack the infrastructure to turn raw clickstream data into actionable revenue decisions. Without visibility into which products drive repeat purchases, where the funnel leaks, and which user segments convert, growth teams fly blind.",
+    contribution: "Ingested and cleaned 2.75M+ raw behavioral events from the RetailRocket dataset into a structured MySQL pipeline. Built a three-page Power BI dashboard surfacing transaction patterns, product-level performance, and funnel drop-off by user cohort. Wrote DAX measures for conversion rate, average order value, and repeat purchase rate. Delivered retention and targeting insights across event types: view, addtocart, and transaction.",
+    ctaLabel: "View on GitHub",
+    ctaUrl: "https://github.com/Aayuraju1211/Customer_Behavior_Analysis-Retailrocket_Ecomm",
+    summaryParts: [
+      { heading: "The Problem Worth Solving", body: "Most e-commerce analytics stacks drown in raw events. The RetailRocket dataset presented exactly that: 2.75 million behavioral signals with no schema, no aggregation, and no story. The real challenge was not loading data; it was asking the right questions of it." },
+      { heading: "Building the Foundation in MySQL", body: "Raw CSV files were ingested, cleaned for nulls and duplicates, and normalised into a relational schema separating events, products, and user sessions. SQL queries computed session-level metrics including time-to-add-to-cart, drop-off between view and transaction, and product-level affinity scores." },
+      { heading: "From Queries to Decisions in Power BI", body: "The dashboard was built across three pages: a funnel overview showing view to addtocart to transaction conversion at each stage; a product performance page ranking SKUs by revenue contribution and repeat purchase rate; and a user cohort page segmenting buyers by visit frequency. DAX measures handled dynamic filtering so the dashboard could answer which products are gaining momentum this week without a new SQL query." },
+      { heading: "What It Surfaces", body: "The final output gave a clear picture of where revenue concentrates, where the funnel bleeds (addtocart to transaction is the biggest drop-off, not view to addtocart), and which user segments are worth re-targeting. The kind of visibility that turns a hunch into a campaign." },
+    ],
+  },
+  {
+    slug: "job-search-pipeline",
+    title: "Automated Job Search Pipeline",
+    tags: ["Automation", "n8n", "Gemini API"],
+    problem: "Job hunting at volume is a data problem masquerading as a hustle problem. Manually sifting LinkedIn daily, scoring fit, and rewriting your resume for each role is hours of low-leverage work. The real bottleneck is not effort; it is the absence of a system that does the filtering before you even open a tab.",
+    contribution: "Built a fully automated n8n pipeline that runs every morning at 5 AM. It reads search filters from a Google Sheet, constructs a LinkedIn search URL dynamically, scrapes and parses job listings, and routes each job description through a two-agent Gemini system: one scores fit against the resume across six weighted dimensions (0 to 100), the other generates role-specific resume improvement points. Results land in a structured Google Sheet with cover letter drafts attached. A Gmail notification closes the loop.",
+    ctaLabel: "Download Workflow",
+    downloadFile: "/files/Job_Search_workflow.json",
+    summaryParts: [
+      { heading: "The Problem Worth Solving", body: "Every job search advice article tells you to apply early, personalise your application, and track your pipeline. Nobody tells you that doing this for 30 or more roles simultaneously is a full-time job in itself. The goal was to collapse the research-to-application cycle from 45 minutes per role to under 2." },
+      { heading: "Designing the Input Layer", body: "The workflow begins with a Google Sheet acting as a control panel. Filters for role keyword, location, experience level, remote preference, and Easy Apply toggle are read at runtime and compiled into a precise LinkedIn search URL via a JavaScript node. The schedule trigger fires at 5 AM daily so results are ready before the day starts." },
+      { heading: "Two AI Agents, Two Jobs", body: "The first Gemini agent scores each role across six weighted dimensions: skills overlap (40 pts), experience depth (25 pts), responsibilities alignment (15 pts), education fit (10 pts), domain match (5 pts), and logistics (5 pts). It also drafts a tailored 150 to 220-word cover letter. The second agent acts as a ruthless resume editor, outputting numbered, highest-impact changes tagged by type (ADD, REWRITE, QUANTIFY, KEYWORDS), each under 14 words." },
+      { heading: "The Output That Matters", body: "Everything writes back to a Results sheet: role, company, location, apply link, match score, cover letter draft, and improvement points. A Gmail confirmation lands in the inbox. What used to take an afternoon of tab-switching now runs while you sleep." },
+    ],
   },
   {
     slug: "ecommerce-analysis",
@@ -345,6 +371,19 @@ const ProjectPage = () => {
           {/* ── Screen-based projects: CTAs + gallery ── */}
           {!isPdfProject && (
             <>
+              {detail.downloadFile && !detail.ctaUrl && (
+                <ScrollReveal>
+                  <a
+                    href={detail.downloadFile}
+                    download
+                    className="cta-button inline-flex items-center gap-2 mb-16"
+                  >
+                    <Download size={14} />
+                    {detail.ctaLabel}
+                  </a>
+                </ScrollReveal>
+              )}
+
               {detail.ctaUrl && !detail.ctas && (
                 <ScrollReveal>
                   <a
@@ -374,6 +413,26 @@ const ProjectPage = () => {
                         {cta.label}
                       </a>
                     ))}
+                  </div>
+                </ScrollReveal>
+              )}
+
+              {/* Summary parts section */}
+              {detail.summaryParts && detail.summaryParts.length > 0 && (
+                <ScrollReveal>
+                  <div className="mt-16 rounded-lg p-8 md:p-12" style={{ backgroundColor: "rgba(255,255,255,0.03)" }}>
+                    <div className="space-y-10">
+                      {detail.summaryParts.map((part, i) => (
+                        <div key={i}>
+                          <h3 className="font-heading text-lg font-semibold mb-3" style={{ color: "#1b6a50" }}>
+                            {part.heading}
+                          </h3>
+                          <p className="text-foreground/80 text-[15px] leading-relaxed">
+                            {part.body}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </ScrollReveal>
               )}

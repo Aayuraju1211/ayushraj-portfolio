@@ -8,7 +8,8 @@ import quarkLogo from "@/assets/quark-2025-logo.png";
 import prismLogo from "@/assets/prism-brain-logo.png";
 import spotifyLogo from "@/assets/spotify-full-logo.png";
 import yatraLogo from "@/assets/yatra-wordmark.png";
-import yourdostLogo from "@/assets/yourdost-icon.png";
+import mysqlLogo from "@/assets/mysql-logo.png";
+import n8nLogo from "@/assets/n8n-logo.png";
 
 export interface Project {
   slug: string;
@@ -83,12 +84,20 @@ export const projects: Project[] = [
     logoMaxWidth: "50%",
   },
   {
-    slug: "yourdost-churn",
-    title: "Reducing Churn & Measuring ROI for yourDOST",
-    tags: ["Case Study"],
-    coverBg: "#1A1505",
-    coverImage: yourdostLogo,
-    logoMaxWidth: "55%",
+    slug: "retailrocket-analysis",
+    title: "RetailRocket E-Commerce Analysis",
+    tags: ["Data Analysis", "MySQL", "Power BI"],
+    coverBg: "#0A1020",
+    coverImage: mysqlLogo,
+    logoMaxWidth: "40%",
+  },
+  {
+    slug: "job-search-pipeline",
+    title: "Automated Job Search Pipeline",
+    tags: ["Automation", "n8n", "Gemini API"],
+    coverBg: "#1A0A05",
+    coverImage: n8nLogo,
+    logoMaxWidth: "40%",
   },
 ];
 
