@@ -8,8 +8,8 @@ import quarkLogo from "@/assets/quark-2025-logo.png";
 import prismLogo from "@/assets/prism-brain-logo.png";
 import spotifyLogo from "@/assets/spotify-full-logo.png";
 import yatraLogo from "@/assets/yatra-wordmark.png";
-import mysqlLogo from "@/assets/mysql-logo.png";
-import n8nLogo from "@/assets/n8n-logo.png";
+import retailrocketLogo from "@/assets/retailrocket-logo.png";
+import n8nLogoNew from "@/assets/n8n-logo-new.png";
 
 export interface Project {
   slug: string;
@@ -34,14 +34,12 @@ export const projects: Project[] = [
     lightCard: true,
   },
   {
-    slug: "multi-asset-fund",
-    title: "Multi-Asset Fund",
-    tags: ["Figma Prototype", "Work Experience"],
-    coverBg: "#0D3D2E",
-    coverImage: ugFullLogo,
-    logoMaxWidth: "50%",
-    label: "MULTI-ASSET FUND",
-    lightCard: true,
+    slug: "prism-mental-health",
+    title: "Prism Mental Health Wellness MVP",
+    tags: ["MVP", "Case Study"],
+    coverBg: "#0A1520",
+    coverImage: prismLogo,
+    logoMaxWidth: "40%",
   },
   {
     slug: "campus-ambassador",
@@ -52,12 +50,30 @@ export const projects: Project[] = [
     logoMaxWidth: "60%",
   },
   {
-    slug: "prism-mental-health",
-    title: "Prism Mental Health Wellness MVP",
-    tags: ["MVP", "Case Study"],
-    coverBg: "#0A1520",
-    coverImage: prismLogo,
-    logoMaxWidth: "40%",
+    slug: "multi-asset-fund",
+    title: "Multi-Asset Fund",
+    tags: ["Figma Prototype", "Work Experience"],
+    coverBg: "#0D3D2E",
+    coverImage: ugFullLogo,
+    logoMaxWidth: "50%",
+    label: "MULTI-ASSET FUND",
+    lightCard: true,
+  },
+  {
+    slug: "retailrocket-analysis",
+    title: "RetailRocket E-Commerce Analysis",
+    tags: ["Data Analysis", "MySQL", "Power BI"],
+    coverBg: "#0A0F1E",
+    coverImage: retailrocketLogo,
+    logoMaxWidth: "35%",
+  },
+  {
+    slug: "job-search-pipeline",
+    title: "Automated Job Search Pipeline",
+    tags: ["Automation", "n8n", "Gemini API"],
+    coverBg: "#1A0A05",
+    coverImage: n8nLogoNew,
+    logoMaxWidth: "50%",
   },
   {
     slug: "spotify-prd",
@@ -82,22 +98,6 @@ export const projects: Project[] = [
     coverBg: "#1A0505",
     coverImage: yatraLogo,
     logoMaxWidth: "50%",
-  },
-  {
-    slug: "retailrocket-analysis",
-    title: "RetailRocket E-Commerce Analysis",
-    tags: ["Data Analysis", "MySQL", "Power BI"],
-    coverBg: "#0A1020",
-    coverImage: mysqlLogo,
-    logoMaxWidth: "40%",
-  },
-  {
-    slug: "job-search-pipeline",
-    title: "Automated Job Search Pipeline",
-    tags: ["Automation", "n8n", "Gemini API"],
-    coverBg: "#1A0A05",
-    coverImage: n8nLogo,
-    logoMaxWidth: "40%",
   },
 ];
 
