@@ -443,12 +443,14 @@ const ProjectPage = () => {
                 </ScrollReveal>
               )}
 
-              <ScreenGallery
-                slug={slug!}
-                screens={screens}
-                title={detail.title}
-                coverBg={projectMeta?.coverBg}
-              />
+              {screens && (
+                <ScreenGallery
+                  slug={slug!}
+                  screens={screens}
+                  title={detail.title}
+                  coverBg={projectMeta?.coverBg}
+                />
+              )}
             </>
           )}
         </div>
