@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ExternalLink, FileText, Download } from "lucide-react";
 import { motion } from "framer-motion";
@@ -269,6 +270,11 @@ const ScreenGallery = ({
 /* ─── Main Page ─── */
 const ProjectPage = () => {
   const { slug } = useParams();
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   const detail = projectDetails.find((p) => p.slug === slug);
   const projectMeta = projects.find((p) => p.slug === slug);
   const screens = slug ? projectScreens[slug] : undefined;
