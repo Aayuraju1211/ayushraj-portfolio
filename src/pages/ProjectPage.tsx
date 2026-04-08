@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ExternalLink, FileText } from "lucide-react";
+import { ArrowLeft, ExternalLink, FileText, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollReveal from "../components/ScrollReveal";
 import Navbar from "../components/Navbar";
@@ -371,6 +371,19 @@ const ProjectPage = () => {
           {/* ── Screen-based projects: CTAs + gallery ── */}
           {!isPdfProject && (
             <>
+              {detail.downloadFile && !detail.ctaUrl && (
+                <ScrollReveal>
+                  <a
+                    href={detail.downloadFile}
+                    download
+                    className="cta-button inline-flex items-center gap-2 mb-16"
+                  >
+                    <Download size={14} />
+                    {detail.ctaLabel}
+                  </a>
+                </ScrollReveal>
+              )}
+
               {detail.ctaUrl && !detail.ctas && (
                 <ScrollReveal>
                   <a
@@ -400,6 +413,26 @@ const ProjectPage = () => {
                         {cta.label}
                       </a>
                     ))}
+                  </div>
+                </ScrollReveal>
+              )}
+
+              {/* Summary parts section */}
+              {detail.summaryParts && detail.summaryParts.length > 0 && (
+                <ScrollReveal>
+                  <div className="mt-16 rounded-lg p-8 md:p-12" style={{ backgroundColor: "rgba(255,255,255,0.03)" }}>
+                    <div className="space-y-10">
+                      {detail.summaryParts.map((part, i) => (
+                        <div key={i}>
+                          <h3 className="font-heading text-lg font-semibold mb-3" style={{ color: "#1b6a50" }}>
+                            {part.heading}
+                          </h3>
+                          <p className="text-foreground/80 text-[15px] leading-relaxed">
+                            {part.body}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </ScrollReveal>
               )}
