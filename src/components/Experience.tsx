@@ -6,10 +6,10 @@ const experiences = [
   role: "Product Management Intern",
   period: "April 2026 to Present",
   points: [
-  "Led milestone billing (fees split into tranches with triggers) from discovery and solutioning to an end-to-end PRD in 2 weeks, then handed it off to engineering.",
-  "Shaped a native Late Fees feature by reviewing around 400 real customer contracts for patterns in late fee terms.",
-  "Building an AI agent POC that syncs customers and products between ERPs and Zenskar, generating a deterministic import/export script per client instead of a hardcoded connector.",
-  "Built an automated sprint release notes pipeline with GitHub, ClickUp, and the Claude API, running successfully for 8 sprints so far."]
+  "Led discovery and PRD for milestone based billing, syncing CPQ event data to auto bill on completion.",
+  "Completed discovery and solutioning for native late fees and payment surcharge pass through.",
+  "Own field mapping design for an AI agent syncing ERPs and Zenskar, flagging missing mandatory fields to meet ERP standards.",
+  "Built a sprint release notes pipeline with GitHub GraphQL CLI, ClickUp MCP, and Claude API, running for 8 sprints."]
 
 },
 {
@@ -54,7 +54,7 @@ const Experience = () => {
             <ScrollReveal key={i} delay={i * 0.1}>
                 <div className={`grid grid-cols-1 md:grid-cols-[240px_1fr] gap-4 md:gap-12 ${i < experiences.length - 1 ? 'mb-12 md:mb-16' : ''}`}>
                   <div className="md:text-right">
-                    <p className="font-sub uppercase tracking-[0.1em] text-muted-foreground font-medium whitespace-nowrap text-base">
+                    <p className="font-sub uppercase tracking-[0.1em] text-muted-foreground font-medium whitespace-nowrap text-sm">
                       {exp.period}
                     </p>
                   </div>
