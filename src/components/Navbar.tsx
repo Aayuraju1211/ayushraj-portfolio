@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { label: "About", href: "/#hero" },
+  { label: "About", href: "/" },
   { label: "Experience", href: "/#experience" },
   { label: "Projects", href: "/#projects" },
 ];
@@ -29,6 +29,10 @@ const Navbar = () => {
       window.location.href = href;
       return;
     }
+    if (href === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     const id = href.replace("/#", "");
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -43,7 +47,7 @@ const Navbar = () => {
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16">
         <button
-          onClick={() => handleNavClick("/#")}
+          onClick={() => handleNavClick("/")}
           className="font-heading text-xl font-bold tracking-tight text-foreground hover:text-foreground/80 transition-colors"
         >
           Ayush's Portfolio

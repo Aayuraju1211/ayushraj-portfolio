@@ -485,7 +485,7 @@
     },
     {
       "parameters": {
-        "sendTo": "f20220851@goa.bits-pilani.ac.in",
+        "sendTo": "f20220851g@alumni.bits-pilani.ac.in",
         "subject": "Job search results",
         "emailType": "text",
         "message": "Hey, your job search results with resume changes are ready in your sheet for today",

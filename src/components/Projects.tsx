@@ -19,11 +19,20 @@ export interface Project {
   coverImage?: string;
   logoMaxWidth: string;
   label?: string;
-  typographic?: boolean;
+  typographic?: { lines: string[]; caption: string };
   lightCard?: boolean;
 }
 
 export const projects: Project[] = [
+  {
+    slug: "review-insights-dashboard",
+    title: "User Review Insights Dashboard",
+    tags: ["Prototype", "Data Analysis", "AI"],
+    coverBg: "#0A1A1A",
+    // TODO(Ayush): swap this typographic cover for a real dashboard screenshot (set coverImage, remove typographic).
+    typographic: { lines: ["REVIEW", "INSIGHTS"], caption: "Prototype · AI" },
+    logoMaxWidth: "0%",
+  },
   {
     slug: "ugf-website",
     title: "UGF Website",
@@ -84,14 +93,6 @@ export const projects: Project[] = [
     logoMaxWidth: "55%",
   },
   {
-    slug: "ecommerce-analysis",
-    title: "E-Commerce Sales Analysis",
-    tags: ["Data Analysis", "Python", "Power BI"],
-    coverBg: "#0D0D1A",
-    typographic: true,
-    logoMaxWidth: "0%",
-  },
-  {
     slug: "yatra-dashboard",
     title: "Tracking Dashboard for Yatra Freight",
     tags: ["Case Study"],
@@ -101,7 +102,7 @@ export const projects: Project[] = [
   },
 ];
 
-const allFilters = ["All", "Case Study", "Figma Prototype", "Data Analysis", "Automation"];
+const allFilters = ["All", "Case Study", "Figma Prototype", "Prototype", "Data Analysis", "Automation", "AI"];
 
 const ProjectCover = ({ project }: { project: Project }) => {
   const hex = project.coverBg;
@@ -157,14 +158,13 @@ const ProjectCover = ({ project }: { project: Project }) => {
       {/* Logo / Content */}
       {project.typographic ? (
         <div className="relative z-10 flex flex-col items-center justify-center transition-transform duration-[400ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover/cover:scale-[1.08]">
-          <span className="font-heading text-[48px] leading-[1.1] text-[#E8E4DC] text-center">
-            E-COM
-          </span>
-          <span className="font-heading text-[48px] leading-[1.1] text-[#E8E4DC] text-center">
-            SALES
-          </span>
+          {project.typographic.lines.map((line) => (
+            <span key={line} className="font-heading text-[48px] leading-[1.1] text-[#E8E4DC] text-center">
+              {line}
+            </span>
+          ))}
           <span className="font-sub text-[11px] tracking-[0.15em] text-primary mt-3">
-            Power BI · Python
+            {project.typographic.caption}
           </span>
         </div>
       ) : (

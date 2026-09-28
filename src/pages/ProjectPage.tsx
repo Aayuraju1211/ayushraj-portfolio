@@ -32,6 +32,7 @@ import mafScreen9 from "@/assets/maf-screen-9.png";
 import yatraCover from "@/assets/yatra-cover.jpg";
 import spotifyCover from "@/assets/spotify-cover.jpg";
 import prismCover from "@/assets/prism-cover.jpg";
+import reviewDashboardPreview from "@/assets/review-dashboard-preview.jpg";
 
 const projectScreens: Record<string, string[]> = {
   "ugf-website": [ugfScreen1, ugfScreen2, ugfScreen3, ugfScreen4, ugfScreen5],
@@ -61,6 +62,7 @@ interface ProjectDetail {
   pdfUrl?: string;
   coverImage?: string;
   secondaryCta?: CTA;
+  livePreview?: { image: string; url: string };
   downloadFile?: string;
   summaryParts?: SummaryPart[];
 }
@@ -125,13 +127,16 @@ const projectDetails: ProjectDetail[] = [
     ],
   },
   {
-    slug: "ecommerce-analysis",
-    title: "E-Commerce Sales Analysis",
-    tags: ["Data Analysis", "Python", "Power BI"],
-    problem: "Retail businesses struggle to identify which customer segments drive revenue and whether discounts actually improve margins or just erode them.",
-    contribution: "Cleaned raw e-commerce data in Python. Analyzed purchasing behavior across age, gender, and city. Evaluated discount effectiveness and membership tier impact (Bronze, Silver, Gold). Delivered a Power BI dashboard surfacing $295K in tracked revenue with actionable retention and targeting insights.",
-    ctaLabel: "View on GitHub",
-    ctaUrl: "https://github.com/Aayuraju1211/E-Commerce_Sales_Analytics",
+    slug: "review-insights-dashboard",
+    title: "User Review Insights Dashboard",
+    tags: ["Prototype", "Data Analysis", "AI"],
+    problem: "App store reviews on Google Play and the Apple App Store carry a lot of signal, but product and customer support teams rarely have a quick way to turn them into something they can act on.",
+    contribution: "Built a prototype that pulls app store reviews from Google Play and the Apple App Store and turns them into actionable insights for product and support teams. Built and tested on the SuperKalam app, with a strong focus on interaction and UX design. Five views: Home, Feedback, Breakdowns, Support, and Reviews.",
+    livePreview: { image: reviewDashboardPreview, url: "https://user-review-dashboard-zeta.vercel.app" },
+    ctas: [
+      { label: "Open Live Dashboard", url: "https://user-review-dashboard-zeta.vercel.app" },
+      { label: "Open Repo", url: "https://github.com/Aayuraju1211/user-review-dashboard" },
+    ],
   },
   {
     slug: "ugf-website",
@@ -166,33 +171,37 @@ const projectDetails: ProjectDetail[] = [
 
 const placeholderScreens = [1, 2, 3];
 
-/* ─── PDF Thumbnail Component ─── */
-const PdfThumbnail = ({
-  coverImage,
-  pdfUrl,
-  title,
+/* ─── Clickable cover image (PDF deck or live preview) ─── */
+const CoverLink = ({
+  image,
+  href,
+  alt,
+  label,
+  icon,
 }: {
-  coverImage: string;
-  pdfUrl: string;
-  title: string;
+  image: string;
+  href: string;
+  alt: string;
+  label: string;
+  icon: React.ReactNode;
 }) => (
   <a
-    href={pdfUrl}
+    href={href}
     target="_blank"
     rel="noopener noreferrer"
     className="group relative block overflow-hidden border border-border"
     style={{ borderColor: "#2A3545" }}
   >
     <img
-      src={coverImage}
-      alt={`${title} — cover slide`}
+      src={image}
+      alt={alt}
       className="w-full block transition-all duration-300 ease-out group-hover:scale-[1.015] group-hover:brightness-[1.06]"
     />
     {/* Hover overlay */}
     <div className="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
       <span className="inline-flex items-center gap-2.5 px-6 py-3 bg-primary text-primary-foreground font-sub text-[13px] uppercase tracking-[0.12em] rounded-sm shadow-lg">
-        <FileText size={16} />
-        View Full Deck
+        {icon}
+        {label}
       </span>
     </div>
   </a>
@@ -340,10 +349,12 @@ const ProjectPage = () => {
           {isPdfProject && detail.coverImage && (
             <>
               <ScrollReveal>
-                <PdfThumbnail
-                  coverImage={detail.coverImage}
-                  pdfUrl={detail.pdfUrl!}
-                  title={detail.title}
+                <CoverLink
+                  image={detail.coverImage}
+                  href={detail.pdfUrl!}
+                  alt={`${detail.title}, cover slide`}
+                  label="View Full Deck"
+                  icon={<FileText size={16} />}
                 />
               </ScrollReveal>
 
@@ -377,6 +388,20 @@ const ProjectPage = () => {
           {/* ── Screen-based projects: CTAs + gallery ── */}
           {!isPdfProject && (
             <>
+              {detail.livePreview && (
+                <ScrollReveal>
+                  <div className="mb-8">
+                    <CoverLink
+                      image={detail.livePreview.image}
+                      href={detail.livePreview.url}
+                      alt={`${detail.title}, home view`}
+                      label="Open Live Dashboard"
+                      icon={<ExternalLink size={16} />}
+                    />
+                  </div>
+                </ScrollReveal>
+              )}
+
               {detail.downloadFile && !detail.ctaUrl && (
                 <ScrollReveal>
                   <a

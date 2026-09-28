@@ -2,9 +2,20 @@ import ScrollReveal from "./ScrollReveal";
 
 const experiences = [
 {
+  company: "Zenskar",
+  role: "Product Management Intern",
+  period: "April 2026 to Present",
+  points: [
+  "Led milestone billing (fees split into tranches with triggers) from discovery and solutioning to an end-to-end PRD in 2 weeks, then handed it off to engineering.",
+  "Shaped a native Late Fees feature by reviewing around 400 real customer contracts for patterns in late fee terms.",
+  "Building an AI agent POC that syncs customers and products between ERPs and Zenskar, generating a deterministic import/export script per client instead of a hardcoded connector.",
+  "Built an automated sprint release notes pipeline with GitHub, ClickUp, and the Claude API, running successfully for 8 sprints so far."]
+
+},
+{
   company: "Unity Growth Fund",
   role: "Product Management Intern",
-  period: "June 2025 — Dec 2025",
+  period: "June 2025 to Dec 2025",
   points: [
   "Spearheaded a local LLM chatbot (PRD + training datasets), cutting inbound support queries by 45%.",
   "Deployed \"Multi-Asset\" and \"VC Fund\" investment verticals, expanding SAM and unlocking new revenue streams.",
@@ -15,7 +26,7 @@ const experiences = [
 {
   company: "Grasim Industries",
   role: "Summer Intern - Business Analysis",
-  period: "May 2024 — July 2024",
+  period: "May 2024 to July 2024",
   points: [
   "Processed and cleaned offline datasets containing daily operational logs, fixing missing or incorrect entries to ensure the data was accurate before it was handed off to the main reporting team.",
   "Utilized Matplotlib and Seaborn to generate static visual reports on 6 core metrics, assisting the dashboard team in building out their weekly trend charts."]

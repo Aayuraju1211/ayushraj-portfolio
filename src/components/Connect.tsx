@@ -3,22 +3,36 @@ import { Mail, Linkedin, Send, Download } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import { toast } from "sonner";
 
+// Google Apps Script web app that writes to the "Portfolio Messages" Sheet. Source: apps-script/contact-form.gs
+const CONTACT_ENDPOINT = "https://script.google.com/macros/s/AKfycbyxWmeHoHPMw0GLKlMnK4V_zevJSs-fXYBNxwDfQ5RfhLrUAjbobbeCSIyWrGKXDVsDtw/exec";
+const CONTACT_EMAIL = "f20220851g@alumni.bits-pilani.ac.in";
+
+const emptyForm = { contact: "", message: "", website: "" };
+
 const Connect = () => {
-  const [form, setForm] = useState({ contact: "", message: "" });
+  const [form, setForm] = useState(emptyForm);
   const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    // Placeholder webhook URL — replace with actual Apps Script URL
     try {
-      // await fetch("YOUR_GOOGLE_APPS_SCRIPT_URL", { method: "POST", body: JSON.stringify(form) });
+      if (!CONTACT_ENDPOINT) throw new Error("Contact endpoint not configured");
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        // text/plain keeps this a simple request, so the browser skips the CORS preflight Apps Script can't answer.
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(form),
+      });
+      const result = await res.json();
+      if (!result.ok) throw new Error(result.error);
       toast.success("Message sent! I'll get back to you soon.");
-      setForm({ contact: "", message: "" });
+      setForm(emptyForm);
     } catch {
-      toast.error("Something went wrong. Please try again.");
+      toast.error(`Couldn't send your message. Please email me at ${CONTACT_EMAIL} instead.`);
+    } finally {
+      setSending(false);
     }
-    setSending(false);
   };
 
   return (
@@ -35,7 +49,7 @@ const Connect = () => {
           <ScrollReveal delay={0.1}>
             <div className="border border-border h-full flex flex-col justify-center px-[32px] py-[12px]">
               <p className="text-muted-foreground mb-8 text-sm leading-relaxed">
-                I'm currently exploring <span className="text-[#1F935D] font-medium">Associate ProductManager </span>, <span className="text-[#1F935D] font-medium">Founder's Office</span>, and <span className="text-[#1F935D] font-medium">Product Analyst</span> opportunities. Whether you have a role in mind, want to brainstorm a product idea, or just want to say hi—drop a message below!
+                I'm currently exploring <span className="text-[#1F935D] font-medium">Associate Product Manager</span>, <span className="text-[#1F935D] font-medium">Founder's Office</span>, and <span className="text-[#1F935D] font-medium">Product Analyst</span> opportunities. Whether you have a role in mind, want to brainstorm a product idea, or just want to say hi, drop a message below!
               </p>
               <div className="flex flex-wrap gap-[32px]">
                 <a
@@ -46,7 +60,7 @@ const Connect = () => {
                   <Download size={14} /> Download Resume
                 </a>
                 <a
-                  href="mailto:f20220851@goa.bits-pilani.ac.in"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-sub text-sm">
                   
                   <Mail size={16} /> Email
@@ -65,24 +79,36 @@ const Connect = () => {
 
           <ScrollReveal delay={0.2}>
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Honeypot: hidden from people, bots fill it and the script drops the message */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="hidden"
+                value={form.website}
+                onChange={(e) => setForm({ ...form, website: e.target.value })} />
               <div>
-                <label className="font-sub text-[12px] uppercase tracking-[0.1em] text-muted-foreground block mb-2">
-                  Email or Phone
+                <label htmlFor="connect-contact" className="font-sub text-[12px] uppercase tracking-[0.1em] text-muted-foreground block mb-2">
+                  Name, Email or Phone
                 </label>
                 <input
+                  id="connect-contact"
                   type="text"
                   required
-                  placeholder="Your email or phone number"
+                  placeholder="Just your name is fine too"
                   value={form.contact}
                   onChange={(e) => setForm({ ...form, contact: e.target.value })}
                   className="w-full bg-transparent border border-border px-4 py-3 text-foreground font-body text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-muted-foreground/50" />
                 
               </div>
               <div>
-                <label className="font-sub text-[12px] uppercase tracking-[0.1em] text-muted-foreground block mb-2">
+                <label htmlFor="connect-message" className="font-sub text-[12px] uppercase tracking-[0.1em] text-muted-foreground block mb-2">
                   Message
                 </label>
                 <textarea
+                  id="connect-message"
                   required
                   rows={5}
                   placeholder="What's on your mind?"

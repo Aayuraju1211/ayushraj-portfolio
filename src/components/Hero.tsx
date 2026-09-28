@@ -34,11 +34,12 @@ const Hero = () => {
                   Systems thinker. Product builder.
                 </h1>
                 <p className="text-base md:text-[17px] text-foreground/50 font-body leading-[1.8] max-w-2xl">
-                  Final-year student at BITS Pilani. Spent 6 months at{" "}
-                  <span className="text-[#1F935D]">Unity Growth Fund</span>{" "}
-                  owning product features end-to-end, from user research and wireframing to high-fidelity prototypes. Previously at{" "}
+                  BITS Pilani Goa 2026 graduate, now a Product Management Intern at{" "}
+                  <span className="text-[#1F935D]">Zenskar</span>{" "}
+                  working on billing and ERP integrations. Previously at{" "}
+                  <span className="text-[#1F935D]">Unity Growth Fund</span> and{" "}
                   <span className="text-[#1F935D]">Grasim Industries</span>.
-                  {" "}I think in systems, build with data, and care about why users do what they do.
+                  {" "}I own features from discovery and PRD through prototypes and QA, and I use AI tools and automation to build things myself.
                 </p>
               </div>
 
@@ -71,7 +72,7 @@ const Hero = () => {
                     Ayush Raj
                   </h2>
                   <p className="text-sm text-[#1F935D] font-body">
-                    BITS Pilani '26
+                    BITS Pilani Goa '26
                   </p>
                   <div className="flex items-center justify-center gap-3 mt-1">
                     <a
@@ -84,7 +85,7 @@ const Hero = () => {
                       <Linkedin size={18} />
                     </a>
                     <a
-                      href="mailto:f20220851@goa.bits-pilani.ac.in"
+                      href="mailto:f20220851g@alumni.bits-pilani.ac.in"
                       className="p-2.5 border border-border rounded-[8px] text-muted-foreground hover:text-primary hover:border-primary transition-colors duration-200"
                       aria-label="Email"
                     >
@@ -114,11 +115,12 @@ const Hero = () => {
                 Systems thinker. Product builder.
               </h1>
               <p className="text-base text-foreground/50 font-body leading-[1.8]">
-                Final-year student at BITS Pilani. Spent 6 months at{" "}
-                <span className="text-[#1F935D]">Unity Growth Fund</span>{" "}
-                owning product features end-to-end, from user research and wireframing to high-fidelity prototypes. Previously at{" "}
+                BITS Pilani Goa 2026 graduate, now a Product Management Intern at{" "}
+                <span className="text-[#1F935D]">Zenskar</span>{" "}
+                working on billing and ERP integrations. Previously at{" "}
+                <span className="text-[#1F935D]">Unity Growth Fund</span> and{" "}
                 <span className="text-[#1F935D]">Grasim Industries</span>.
-                {" "}I think in systems, build with data, and care about why users do what they do.
+                {" "}I own features from discovery and PRD through prototypes and QA, and I use AI tools and automation to build things myself.
               </p>
             </motion.div>
 
@@ -127,7 +129,7 @@ const Hero = () => {
                 <Download size={14} />
                 Resume
               </a>
-              <a href="mailto:f20220851@goa.bits-pilani.ac.in" className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-[8px] font-sub uppercase text-[10px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200">
+              <a href="mailto:f20220851g@alumni.bits-pilani.ac.in" className="flex items-center gap-2 px-5 py-2.5 border border-border rounded-[8px] font-sub uppercase text-[10px] tracking-[0.14em] font-medium text-foreground hover:border-primary hover:text-primary transition-colors duration-200">
                 <Mail size={14} />
                 Email
               </a>
